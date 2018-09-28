@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="canopus" version="12.0.0.2017041100">
+  <ownedViewpoints name="Monitoring Diagram">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Monitoring Diagram" showOnStartup="true" domainClass="canopus::Monitoring" enablePopupBars="true">
+      <metamodel href="http://www.unipampa.lesse.org/canopus#/"/>
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceMonitoring"/>
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceMonitoring/canopusPerformanceMetric"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="SUTNode" synchronizationLock="true" domainClass="canopusPerformanceMonitoring::SUT">
+          <borderedNodeMappings name="MetricNode" label="Metric Node" semanticCandidatesExpression="feature:metricmodel" doubleClickDescription="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateMetric']" domainClass="canopusPerformanceMonitoring::MetricModel">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="20" showIcon="false" labelExpression="" iconPath="/monitoring.canopus.design/icons/Metric.gif" tooltipExpression="['Metric(double-click to opens the metric diagram) '/]" workspacePath="/monitoring.canopus.design/icons/Metric.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>EAST</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="18" showIcon="false" labelExpression="[hostname +' (SUT)' + ip/]" iconPath="/monitoring.canopus.design/icons/SUT.gif" labelAlignment="RIGHT" tooltipExpression="['System under test '+ hostname/]" sizeComputationExpression="20" workspacePath="/monitoring.canopus.design/icons/SUT.gif">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="MonitorNode" synchronizationLock="true" domainClass="canopusPerformanceMonitoring::Monitor">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="15" showIcon="false" labelExpression="[hostname +' (Monitor) '  + ip/]" iconPath="/monitoring.canopus.design/icons/Monitor.gif" tooltipExpression="['Monitor '+ hostname/]" sizeComputationExpression="20" workspacePath="/monitoring.canopus.design/icons/Monitor.gif">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="LoadGeneratorNode" domainClass="canopusPerformanceMonitoring::LoadGenerator">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="15" showIcon="false" labelExpression="[hostname +' (LG)' + ip/]" iconPath="/monitoring.canopus.design/icons/LoadGenerator.gif" tooltipExpression="['Load generator '+ hostname/]" sizeComputationExpression="20" workspacePath="/monitoring.canopus.design/icons/LoadGenerator.gif">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="SUTAssociationEdge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" targetMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" targetFinderExpression="feature:sut">
+          <style lineStyle="dash" targetArrow="InputClosedArrow" sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription labelSize="1" showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="LGEdgeSUT" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='LoadGeneratorNode']" targetMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" targetFinderExpression="feature:sut">
+          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="LGEdgeMonitor" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='LoadGeneratorNode']" targetMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='MonitorNode']" targetFinderExpression="feature:monitor">
+          <style lineStyle="dot" sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="MonitorEdge" sourceMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='MonitorNode']" targetMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" targetFinderExpression="feature:sut">
+          <style sizeComputationExpression="4" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="CretaionMonitoringElements" label="Cretaion Monitoring Elements">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="CreateMetric" mappings="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']/@borderedNodeMappings[name='MetricNode']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Relations" label="Relations Tools">
+          <ownedTools xsi:type="tool:ToolGroup" name="RelationsEdges" label="Relations">
+            <tools xsi:type="tool:EdgeCreationDescription" name="EdgeSUTToSUT" label="SUT To SUT" precondition="aql:preTarget.differs(preSource) and preSource.oclAsType(canopusPerformanceMonitoring::SUT).sut->excludes(preTarget)" forceRefresh="true" elementsToSelect="feature:sut" edgeMappings="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@edgeMappings[name='SUTAssociationEdge']">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="sut" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="sut" valueExpression="var:source"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" name="EdgeLGToSUT" label="LG To SUT" precondition="aql:preTarget.differs(preSource) and preSource.oclAsType(canopusPerformanceMonitoring::LoadGenerator).sut->excludes(preTarget)" forceRefresh="true" elementsToSelect="feature:sut" inverseSelectionOrder="true" edgeMappings="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@edgeMappings[name='LGEdgeSUT']">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="sut" valueExpression="var:target"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" name="EdgeLGToMonitor" label="LG To Monitor" precondition="aql:preTarget.differs(preSource) and preSource.oclAsType(canopusPerformanceMonitoring::LoadGenerator).sut->excludes(preTarget)" forceRefresh="true" elementsToSelect="feature:sut" inverseSelectionOrder="true" edgeMappings="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@edgeMappings[name='LGEdgeMonitor']">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="monitor" valueExpression="var:target"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" name="Monitor Association" precondition="aql:preTarget.differs(preSource) and preSource.oclAsType(canopusPerformanceMonitoring::Monitor).sut->excludes(preTarget)" forceRefresh="true" elementsToSelect="feature:sut" inverseSelectionOrder="true" edgeMappings="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@edgeMappings[name='MonitorEdge']">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="sut" valueExpression="var:target"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Creation" label="Creation Tools">
+          <ownedTools xsi:type="tool:ToolGroup" name="CreateElements" label="Create Elements">
+            <tools xsi:type="tool:NodeCreationDescription" name="CreateSUT" label="System Under Test" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" iconPath="/monitoring.canopus.design/icons/SUT.gif">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceMonitoring::SUT" referenceName="suts">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="hostname" valueExpression="feature:hostname"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="CreateLG" label="Load Generator" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='LoadGeneratorNode']" iconPath="/monitoring.canopus.design/icons/LoadGenerator.gif">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceMonitoring::LoadGenerator" referenceName="loadGenerators">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="hostname" valueExpression="feature:hostname"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="CreateMonitor" label="Monitor" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='MonitorNode']" iconPath="/monitoring.canopus.design/icons/Monitor.gif">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceMonitoring::Monitor" referenceName="monitors">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="hostname" valueExpression="feature:hostname"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="MonitoringCont" initialisation="true" showOnStartup="true" domainClass="canopus::Monitoring" enablePopupBars="true">
+      <metamodel href="http://www.unipampa.lesse.org/canopus#/"/>
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceMonitoring/canopusPerformanceMetric"/>
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceMonitoring"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="SUTAssociationEdge" sourceMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" targetMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" targetFinderExpression="feature:sut">
+          <style lineStyle="dash" targetArrow="InputClosedArrow" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Cont" semanticCandidatesExpression="var:self" domainClass="canopus::Monitoring" reusedNodeMappings="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='LoadGeneratorNode'] //@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='MonitorNode'] //@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="monitoring.canopus.design.Services"/>
+  </ownedViewpoints>
+  <ownedViewpoints name="MetricDiagram" label="Metric Diagram">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Metric Diagram" label="Metric Diagram " titleExpression="new Metric Model" domainClass="canopusPerformanceMonitoring::MetricModel" enablePopupBars="true">
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceMonitoring/canopusPerformanceMetric"/>
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceMonitoring"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="MemoryNode" label="Memory Node" semanticCandidatesExpression="feature:memory" synchronizationLock="true" domainClass="canopusPerformanceMetric::Memory">
+          <style xsi:type="style:LozengeNodeDescription" labelExpression="" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Disk" label="Disk Node" semanticCandidatesExpression="feature:disk" domainClass="canopusPerformanceMetric::Disk">
+          <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Transaction" label="Transaction Node" semanticCandidatesExpression="feature:transaction" domainClass="canopusPerformanceMetric::Transaction">
+          <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="TransactionCounterNode" label="Transaction Counter Node" semanticCandidatesExpression="feature:transactionCounter" domainClass="canopusPerformanceMetric::TransactionCounter">
+          <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="DiskCounterNode" label="Disk I/O Counter Node" semanticCandidatesExpression="feature:diskCounter" domainClass="canopusPerformanceMetric::Disk_IO_Counter">
+          <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="MemoryCounterNode" label="Memory Counter Node" semanticCandidatesExpression="feature:memoryCounter" domainClass="canopusPerformanceMetric::MemoryCounter">
+          <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ThresholdNode" label="Threshold Node" semanticCandidatesExpression="feature:threshold" domainClass="canopusPerformanceMetric::Threshold">
+          <style xsi:type="style:EllipseNodeDescription" showIcon="false" labelExpression="feature:value" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="CriteriaNode" label="Criteria Node" semanticCandidatesExpression="feature:criteria" domainClass="canopusPerformanceMetric::Criteria">
+          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:value" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="AssociationCriteriaThresholdNode" label="Association Criteria and threshold Node" semanticCandidatesExpression="feature:associationcountercriteriathreshold" domainClass="canopusPerformanceMetric::AssociationCounterCriteriaThreshold">
+          <style xsi:type="style:LozengeNodeDescription" showIcon="false" labelExpression="service:setLabelAssociationCriteriaThreshold()" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="DiskToCounterEdge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='Disk']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='DiskCounterNode']" targetFinderExpression="feature:disk_io_counter">
+          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="MemoryToCounterEdge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='MemoryNode']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='MemoryCounterNode']" targetFinderExpression="feature:memoryCounter">
+          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="TransactionToCounterEdge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='Transaction']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='TransactionCounterNode']" targetFinderExpression="feature:transactionCounter">
+          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="CounterToAssociationEdge" label="Counter To Association Edge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='DiskCounterNode'] //@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='MemoryCounterNode'] //@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='TransactionCounterNode']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='AssociationCriteriaThresholdNode']" targetFinderExpression="feature:associationcountercriteriathreshold">
+          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="AssociationToThresholdEdge" label="Association To Threshold Edge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='AssociationCriteriaThresholdNode']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='ThresholdNode']" targetFinderExpression="feature:threshold">
+          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="AssociationToCriteriaEdge" label="Association To Criteria Edge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='AssociationCriteriaThresholdNode']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='CriteriaNode']" targetFinderExpression="feature:criteria">
+          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="CretaionMetricsElements" label="Cretaion Metrics Elements">
+          <ownedTools xsi:type="tool:ToolGroup" name="MetricsGroup" label="Metrics Group">
+            <tools xsi:type="tool:NodeCreationDescription" name="CreateDiskMetric" label="Disk Metric" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='Disk']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceMetric::Disk" referenceName="disk">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="feature:name"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="CreateDiskCounter" label="Disk Metric I/O Counter" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='DiskCounterNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceMetric::Disk_IO_Counter" referenceName="diskCounter">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Disk I/O Counter Node"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="RelationMetricsElementes" label="Relation Metrics Elementes">
+          <ownedTools xsi:type="tool:ToolGroup" name="Metrics Relations">
+            <tools xsi:type="tool:EdgeCreationDescription" name="MetricToCounter" label="Metric To Counter" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@edgeMappings[name='DiskToCounterEdge']">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="disk_io_counter" valueExpression="var:target"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" name="CounterToAssociation" label="Counter To Association" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@edgeMappings[name='CounterToAssociationEdge']">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="associationcountercriteriathreshold" valueExpression="var:target"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" name="AssociationToThreshold" label="Association To Threshold" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@edgeMappings[name='AssociationToThresholdEdge']">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="threshold" valueExpression="var:target"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:EdgeCreationDescription" name="AssociationToCriteria" label="Association To Criteria" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@edgeMappings[name='AssociationToCriteriaEdge']">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="criteria" valueExpression="var:target"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="TableTest" titleExpression="New Metric Table" initialisation="true" domainClass="canopusPerformanceMonitoring::MetricModel">
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceMonitoring/canopusPerformanceMetric"/>
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceMonitoring"/>
+      <ownedLineMappings name="MetricLineDisk" label="Metric Line Disk" domainClass="canopusPerformanceMetric::Disk" semanticCandidatesExpression="feature:disk"/>
+      <ownedLineMappings name="MetricLineTransction" label="Metric Line Transction" domainClass="canopusPerformanceMetric::Transaction" semanticCandidatesExpression="feature:transaction"/>
+      <ownedLineMappings name="MetricLineMemory" label="Metric Line Memory" domainClass="canopusPerformanceMetric::Memory" semanticCandidatesExpression="feature:memory"/>
+      <ownedColumnMappings name="Teste1" headerLabelExpression="Teste2" featureName="counter" labelExpression="[self.name/]"/>
+      <ownedColumnMappings name="Teste" headerLabelExpression="Teste4" featureName="disk_io_counter" labelExpression="[self.disk_io_counter.name/]"/>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>
