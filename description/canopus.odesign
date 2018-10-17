@@ -423,19 +423,80 @@
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScripting"/>
       <defaultLayer name="Default">
         <nodeMappings name="InitialNode" label="Initial Node" semanticCandidatesExpression="feature:initial" domainClass="canopusPerformanceScripting::Initial">
-          <style xsi:type="style:DotDescription" labelExpression="" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:DotDescription" showIcon="false" labelExpression="" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FinalNode" label="Final Node" semanticCandidatesExpression="feature:final" domainClass="canopusPerformanceScripting::Final">
-          <style xsi:type="style:LozengeNodeDescription" labelExpression="" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:LozengeNodeDescription" showIcon="false" labelExpression="" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </nodeMappings>
+        <nodeMappings name="ActivityNode" label="Activity Node" semanticCandidatesExpression="feature:activities" domainClass="canopusPerformanceScripting::Activity">
+          <style xsi:type="style:EllipseNodeDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ThinkTimeNode" label="Think Time Node" semanticCandidatesExpression="feature:thinkTime" domainClass="canopusPerformanceScripting::ThinkTime">
+          <style xsi:type="style:EllipseNodeDescription" showIcon="false" labelExpression="feature:time" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="DataTableNode" label="DataTable Node" semanticCandidatesExpression="feature:datatables" domainClass="canopusPerformanceScripting::DataTable">
+          <style xsi:type="style:SquareDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="InitialToActivity" label="Initial To Activity" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='InitialNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activity">
+          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ActivityToFinal" label="Activity To Final" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='FinalNode']" targetFinderExpression="feature:final">
+          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ActivityToActivity" label="Activity To Activity" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activity">
+          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ActivityToThinkTime" label="Activity To Think Time" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ThinkTimeNode']" targetFinderExpression="feature:thinktime">
+          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ThinkTimeToActivity" label="Think Time To Activity" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ThinkTimeNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activity">
+          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
       </defaultLayer>
     </ownedRepresentations>
   </ownedViewpoints>
