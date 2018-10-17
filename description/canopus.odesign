@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="canopus" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="canopus" version="12.0.0.2017041100">
   <ownedViewpoints name="Monitoring Diagram">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Monitoring Diagram" showOnStartup="true" domainClass="canopus::Monitoring" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Monitoring Diagram" initialisation="true" domainClass="canopus::Monitoring" enablePopupBars="true">
       <metamodel href="http://www.unipampa.lesse.org/canopus#/"/>
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceMonitoring"/>
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceMonitoring/canopusPerformanceMetric"/>
       <defaultLayer name="Default">
-        <nodeMappings name="SUTNode" synchronizationLock="true" domainClass="canopusPerformanceMonitoring::SUT">
+        <nodeMappings name="SUTNode" doubleClickDescription="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='CreateElements']/@tools.3" synchronizationLock="true" domainClass="canopusPerformanceMonitoring::SUT">
           <borderedNodeMappings name="MetricNode" label="Metric Node" semanticCandidatesExpression="feature:metricmodel" doubleClickDescription="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateMetric']" domainClass="canopusPerformanceMonitoring::MetricModel">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="20" showIcon="false" labelExpression="" iconPath="/monitoring.canopus.design/icons/Metric.gif" tooltipExpression="['Metric(double-click to opens the metric diagram) '/]" workspacePath="/monitoring.canopus.design/icons/Metric.gif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -34,7 +34,7 @@
           </style>
         </nodeMappings>
         <edgeMappings name="SUTAssociationEdge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" targetMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" targetFinderExpression="feature:sut">
-          <style lineStyle="dash" targetArrow="InputClosedArrow" sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+          <style lineStyle="dash_dot" targetArrow="InputClosedArrow" sizeComputationExpression="4" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription labelSize="1" showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -58,7 +58,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="MonitorEdge" sourceMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='MonitorNode']" targetMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" targetFinderExpression="feature:sut">
-          <style sizeComputationExpression="4" routingStyle="manhattan">
+          <style lineStyle="dot" sizeComputationExpression="4" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -162,6 +162,29 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
+            <tools xsi:type="tool:DoubleClickDescription" name="CreateMetric" label="Metric Model" mappings="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
+                  <buttons labelExpression="No" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:DeleteView"/>
+                    </initialOperation>
+                  </buttons>
+                  <buttons labelExpression="Yes" default="true" closeDialogOnClick="true">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceMonitoring::MetricModel" referenceName="metricmodel">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="metric"/>
+                        </subModelOperations>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Create a new Metric model to SUT?" semanticCandidateExpression="var:self"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
           </ownedTools>
         </toolSections>
       </defaultLayer>
@@ -192,7 +215,7 @@
     <ownedJavaExtensions qualifiedClassName="monitoring.canopus.design.Services"/>
   </ownedViewpoints>
   <ownedViewpoints name="MetricDiagram" label="Metric Diagram">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Metric Diagram" label="Metric Diagram " titleExpression="new Metric Model" domainClass="canopusPerformanceMonitoring::MetricModel" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Metric Diagram" label="Metric Diagram " titleExpression="new Metric Model" initialisation="true" domainClass="canopusPerformanceMonitoring::MetricModel" enablePopupBars="true">
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceMonitoring/canopusPerformanceMetric"/>
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceMonitoring"/>
       <defaultLayer name="Default">
@@ -391,6 +414,29 @@
       <ownedLineMappings name="MetricLineMemory" label="Metric Line Memory" domainClass="canopusPerformanceMetric::Memory" semanticCandidatesExpression="feature:memory"/>
       <ownedColumnMappings name="Teste1" headerLabelExpression="Teste2" featureName="counter" labelExpression="[self.name/]"/>
       <ownedColumnMappings name="Teste" headerLabelExpression="Teste4" featureName="disk_io_counter" labelExpression="[self.disk_io_counter.name/]"/>
+    </ownedRepresentations>
+  </ownedViewpoints>
+  <ownedViewpoints name="Scripting Diagram" label="Scripting Diagram">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ScriptingDiagram" label="Scripting Diagram" domainClass="canopus::Scripting">
+      <metamodel href="http://www.unipampa.lesse.org/canopus#/"/>
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScripting/canopusPerformanceExternalFile"/>
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScripting"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="InitialNode" label="Initial Node" semanticCandidatesExpression="feature:initial" domainClass="canopusPerformanceScripting::Initial">
+          <style xsi:type="style:DotDescription" labelExpression="" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="FinalNode" label="Final Node" semanticCandidatesExpression="feature:final" domainClass="canopusPerformanceScripting::Final">
+          <style xsi:type="style:LozengeNodeDescription" labelExpression="" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+      </defaultLayer>
     </ownedRepresentations>
   </ownedViewpoints>
 </description:Group>
