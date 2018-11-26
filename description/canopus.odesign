@@ -16,7 +16,7 @@
               <forbiddenSides>NORTH</forbiddenSides>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="18" showIcon="false" labelExpression="[hostname +' (SUT)' + ip/]" iconPath="/monitoring.canopus.design/icons/SUT.gif" labelAlignment="RIGHT" tooltipExpression="['System under test '+ hostname/]" sizeComputationExpression="20" workspacePath="/monitoring.canopus.design/icons/SUT.gif">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="18" showIcon="false" labelExpression="[hostname +' (SUT)' + ip/]" iconPath="/monitoring.canopus.design/icons/SUT.gif" labelAlignment="RIGHT" tooltipExpression="['System under test '+ hostname/]" sizeComputationExpression="20" resizeKind="NSEW" workspacePath="/monitoring.canopus.design/icons/SUT.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -28,7 +28,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="LoadGeneratorNode" domainClass="canopusPerformanceMonitoring::LoadGenerator">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="15" showIcon="false" labelExpression="[hostname +' (LG)' + ip/]" iconPath="/monitoring.canopus.design/icons/LoadGenerator.gif" tooltipExpression="['Load generator '+ hostname/]" sizeComputationExpression="20" workspacePath="/monitoring.canopus.design/icons/LoadGenerator.gif">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="15" showIcon="false" labelExpression="[hostname +' (LG)' + ip/]" iconPath="/monitoring.canopus.design/icons/LoadGenerator.gif" tooltipExpression="['Load generator '+ hostname/]" sizeComputationExpression="20" resizeKind="NSEW" workspacePath="/monitoring.canopus.design/icons/LoadGenerator.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -417,7 +417,7 @@
     </ownedRepresentations>
   </ownedViewpoints>
   <ownedViewpoints name="Scripting Diagram" label="Scripting Diagram">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ScriptingDiagram" label="Scripting Diagram" domainClass="canopus::Scripting">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ScriptingDiagram" label="Scripting Diagram" initialisation="true" domainClass="canopus::Scripting" enablePopupBars="true">
       <metamodel href="http://www.unipampa.lesse.org/canopus#/"/>
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScripting/canopusPerformanceExternalFile"/>
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScripting"/>
@@ -451,7 +451,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="DataTableNode" label="DataTable Node" semanticCandidatesExpression="feature:datatables" domainClass="canopusPerformanceScripting::DataTable">
-          <style xsi:type="style:SquareDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:delimeter" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
