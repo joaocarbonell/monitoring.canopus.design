@@ -262,14 +262,14 @@
           </style>
         </nodeMappings>
         <nodeMappings name="ThresholdNode" label="Threshold Node" semanticCandidatesExpression="feature:threshold" domainClass="canopusPerformanceMetric::Threshold">
-          <style xsi:type="style:EllipseNodeDescription" showIcon="false" labelExpression="feature:value" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:value" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="CriteriaNode" label="Criteria Node" semanticCandidatesExpression="feature:criteria" domainClass="canopusPerformanceMetric::Criteria">
-          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:value" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:EllipseNodeDescription" showIcon="false" labelExpression="feature:value" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -315,7 +315,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="AssociationToThresholdEdge" label="Association To Threshold Edge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='AssociationCriteriaThresholdNode']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='ThresholdNode']" targetFinderExpression="feature:threshold">
-          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+          <style targetArrow="OutputClosedArrow" sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -323,7 +323,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="AssociationToCriteriaEdge" label="Association To Criteria Edge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='AssociationCriteriaThresholdNode']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='CriteriaNode']" targetFinderExpression="feature:criteria">
-          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+          <style lineStyle="dash" targetArrow="InputFillClosedArrow" sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -351,6 +351,33 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceMetric::Disk_IO_Counter" referenceName="diskCounter">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Disk I/O Counter Node"/>
                   </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="CreateThresholdNode" label="Threshold Metric" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='ThresholdNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceMetric::Threshold" referenceName="threshold"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="CreateAssociationThresholdNode" label="Association and Threshold Metric" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='AssociationCriteriaThresholdNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceMetric::AssociationCounterCriteriaThreshold" referenceName="associationcountercriteriathreshold"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="CreateCriteriaNode" label="Criteria Metric" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='CriteriaNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceMetric::Criteria" referenceName="criteria"/>
                 </firstModelOperations>
               </initialOperation>
             </tools>
