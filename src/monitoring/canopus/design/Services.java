@@ -22,7 +22,6 @@ import canopus.canopusPerformanceScripting.DataTable;
 import canopus.canopusPerformanceScripting.Final;
 import canopus.canopusPerformanceScripting.Initial;
 import canopus.canopusPerformanceScripting.SaveParameters;
-import canopus.canopusPerformanceScripting.ScriptingModel;
 
 
 /**
