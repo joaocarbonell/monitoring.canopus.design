@@ -28,6 +28,15 @@
           </style>
         </nodeMappings>
         <nodeMappings name="LoadGeneratorNode" domainClass="canopusPerformanceMonitoring::LoadGenerator">
+          <borderedNodeMappings name="MetricNode" label="Metric Node" semanticCandidatesExpression="feature:metricmodel" domainClass="canopusPerformanceMonitoring::MetricModel">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="20" showIcon="false" labelExpression="" iconPath="/monitoring.canopus.design/icons/Metric.gif" tooltipExpression="['Metric(double-click to opens the metric diagram) '/]" workspacePath="/monitoring.canopus.design/icons/Metric.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>EAST</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
+            </style>
+          </borderedNodeMappings>
           <style xsi:type="style:WorkspaceImageDescription" labelSize="15" showIcon="false" labelExpression="[hostname +' (LG)' + ip/]" iconPath="/monitoring.canopus.design/icons/LoadGenerator.gif" tooltipExpression="['Load generator '+ hostname/]" sizeComputationExpression="20" resizeKind="NSEW" workspacePath="/monitoring.canopus.design/icons/LoadGenerator.gif">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -426,11 +435,48 @@
       </defaultLayer>
     </ownedRepresentations>
   </ownedViewpoints>
-  <ownedViewpoints name="Scripting Diagram" label="Scripting Diagram">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ScriptingDiagram" label="Scripting Diagram" initialisation="true" domainClass="canopus::Scripting" enablePopupBars="true">
+  <ownedViewpoints name="Scenario Diagram">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Scenario Diagram" initialisation="true" domainClass="canopus::Scenario" enablePopupBars="true">
       <metamodel href="http://www.unipampa.lesse.org/canopus#/"/>
-      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScripting/canopusPerformanceExternalFile"/>
-      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScripting"/>
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario"/>
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario/canopusPerformanceScripting"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="UserProfileNode" label="User Profile Node" semanticCandidatesExpression="feature:users" domainClass="canopusPerformanceScenario::UserProfile">
+          <borderedNodeMappings name="ScriptNode" semanticCandidatesExpression="feature:scripting" domainClass="canopusPerformanceScenario::Scripting">
+            <style xsi:type="style:DotDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:SquareDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ScriptNode" label="Script Node" semanticCandidatesExpression="feature:scripting" domainClass="canopusPerformanceScenario::Scripting">
+          <style xsi:type="style:EllipseNodeDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="UserProfileToScript" label="User Profile To Script" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='UserProfileNode']" targetMapping="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='ScriptNode']" targetFinderExpression="feature:scripting">
+          <style lineStyle="dash" sizeComputationExpression="6" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="feature:percentage">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+  <ownedViewpoints name="Scripting Diagram" label="Scripting Diagram">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Scripting Diagram" initialisation="true" domainClass="canopusPerformanceScenario::Scripting" enablePopupBars="true">
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario"/>
+      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario/canopusPerformanceScripting"/>
       <defaultLayer name="Default">
         <nodeMappings name="InitialNode" label="Initial Node" semanticCandidatesExpression="feature:initial" domainClass="canopusPerformanceScripting::Initial">
           <style xsi:type="style:DotDescription" showIcon="false" labelExpression="" labelPosition="node" resizeKind="NSEW">
@@ -453,21 +499,21 @@
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="ThinkTimeNode" label="Think Time Node" semanticCandidatesExpression="feature:thinkTime" domainClass="canopusPerformanceScripting::ThinkTime">
-          <style xsi:type="style:EllipseNodeDescription" showIcon="false" labelExpression="feature:time" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-          </style>
-        </nodeMappings>
         <nodeMappings name="DataTableNode" label="DataTable Node" semanticCandidatesExpression="feature:datatables" domainClass="canopusPerformanceScripting::DataTable">
-          <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:delimeter" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" labelExpression="feature:delimeter" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="InitialToActivity" label="Initial To Activity" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='InitialNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activity">
+        <nodeMappings name="ThinkTimeNode" label="ThinkTime Node" semanticCandidatesExpression="feature:thinkTime" domainClass="canopusPerformanceScripting::ThinkTime">
+          <style xsi:type="style:EllipseNodeDescription" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="InitialToActivity" label="Initial To Activity" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='InitialNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activity">
           <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription>
@@ -475,7 +521,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ActivityToFinal" label="Activity To Final" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='FinalNode']" targetFinderExpression="feature:final">
+        <edgeMappings name="ActivityToFinal" label="Activity To Final" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='FinalNode']" targetFinderExpression="feature:final">
           <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription>
@@ -483,7 +529,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ActivityToActivity" label="Activity To Activity" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activity">
+        <edgeMappings name="ActivityToThinkTime" label="Activity To Think Time" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ThinkTimeNode']" targetFinderExpression="feature:thinktime">
           <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription>
@@ -491,7 +537,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ActivityToThinkTime" label="Activity To Think Time" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ThinkTimeNode']" targetFinderExpression="feature:thinktime">
+        <edgeMappings name="ThinkTimeToActivity" label="Think Time To Activity" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ThinkTimeNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activity">
           <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription>
@@ -499,7 +545,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ThinkTimeToActivity" label="Think Time To Activity" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ThinkTimeNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activity">
+        <edgeMappings name="ActivityToActivity" label="Activity To Activity" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activity">
           <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription>
@@ -508,7 +554,7 @@
           </style>
         </edgeMappings>
         <toolSections name="CretaionMetricsElements" label="Cretaion Metrics Elements">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateInitialNode" label="Intial" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='InitialNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateInitialNode" label="Intial" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='InitialNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -519,7 +565,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateFinalNode" label="Final" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='FinalNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateFinalNode" label="Final" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='FinalNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -530,7 +576,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateActivityNode" label="Activity" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateActivityNode" label="Activity" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -541,31 +587,31 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateThinkTimeNode" label="Think Time" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='ThinkTimeNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateThinkTimeNode" label="Think Time" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ThinkTimeNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceScripting::Initial" referenceName="initial">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceScripting::ThinkTime" referenceName="thinkTime">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="feature:name"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateDataTableNode" label="Data Table" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@nodeMappings[name='DataTableNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateDataTableNode" label="Data Table" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='DataTableNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceScripting::Initial" referenceName="initial">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="feature:name"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceScripting::DataTable" referenceName="datatables">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="delimeter" valueExpression="feature:delimeter"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="RelationMetricsElementes" label="Relation Metrics Elementes">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="InitialToActivity" label="Initial to Activity" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@edgeMappings[name='InitialToActivity']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="InitialToActivity" label="Initial to Activity" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@edgeMappings[name='InitialToActivity']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -576,7 +622,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ActivityToFinal" label="Activity to Final" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@edgeMappings[name='ActivityToFinal']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ActivityToFinal" label="Activity to Final" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@edgeMappings[name='ActivityToFinal']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -587,7 +633,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ActivityToActivity" label="Activity to Activity" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@edgeMappings[name='ActivityToActivity']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ActivityToActivity" label="Activity to Activity" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@edgeMappings[name='ActivityToActivity']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -598,7 +644,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ActivityToThinkTime" label="Activity to Think Time" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@edgeMappings[name='ActivityToThinkTime']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ActivityToThinkTime" label="Activity to Think Time" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@edgeMappings[name='ActivityToThinkTime']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -609,7 +655,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ThinkTimeToActivity" label="Think Time To Activity" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='ScriptingDiagram']/@defaultLayer/@edgeMappings[name='ActivityToThinkTime']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ThinkTimeToActivity" label="Think Time To Activity" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@edgeMappings[name='ThinkTimeToActivity']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -621,45 +667,6 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-      </defaultLayer>
-    </ownedRepresentations>
-  </ownedViewpoints>
-  <ownedViewpoints name="Scenario Diagram">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="scenarioDiagram" label="Scenario Diagram" initialisation="true" domainClass="canopus::Scenario" enablePopupBars="true">
-      <metamodel href="http://www.unipampa.lesse.org/canopus#/"/>
-      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario"/>
-      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario/canopusPerformanceWorkload"/>
-      <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScripting"/>
-      <defaultLayer name="Default">
-        <nodeMappings name="userProfileNode" label="User Profile Node" domainClass="canopusPerformanceScenario::UserProfile">
-          <style xsi:type="style:DotDescription" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="scriptFromScenario" label="Script" domainClass="canopusPerformanceScenario::ScriptModel">
-          <style xsi:type="style:LozengeNodeDescription" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="scriptFromScenario" label="Script" domainClass="canopusPerformanceScenario::ScriptModel">
-          <style xsi:type="style:LozengeNodeDescription" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </nodeMappings>
-        <edgeMappings name="UserProfileToScript" label="User Profile to Script" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='scenarioDiagram']/@defaultLayer/@nodeMappings[name='userProfileNode']" targetMapping="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='scenarioDiagram']/@defaultLayer/@nodeMappings[name='scriptFromScenario']" targetFinderExpression="feature:scriptmodel">
-          <style targetArrow="NoDecoration" sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
-            <centerLabelStyleDescription>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
       </defaultLayer>
     </ownedRepresentations>
   </ownedViewpoints>

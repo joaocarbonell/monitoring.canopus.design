@@ -13,16 +13,10 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 
-import canopus.Scripting;
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.AssociationCounterCriteriaThreshold;
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Criteria;
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Disk;
-import canopus.canopusPerformanceScripting.Activity;
-import canopus.canopusPerformanceScripting.DataTable;
-import canopus.canopusPerformanceScripting.Final;
-import canopus.canopusPerformanceScripting.Initial;
-import canopus.canopusPerformanceScripting.SaveParameters;
-
+import canopus.canopusPerformanceScenario.*;
 
 /**
  * 
