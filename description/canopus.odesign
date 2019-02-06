@@ -801,14 +801,14 @@
     </ownedRepresentations>
   </ownedViewpoints>
   <ownedViewpoints name="WorkLoadDiagram" label="WorkLoad Diagram">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="WorkLoadDiagram" label="WorkLoad Diagram" titleExpression="new Workload Diagram" initialisation="true" domainClass="canopusPerformanceWorkload::WorkloadGroup" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="WorkLoadDiagram" label="WorkLoad Diagram" titleExpression="new Workload Diagram" initialisation="true" domainClass="canopusPerformanceScenario::Workload" enablePopupBars="true">
       <metamodel href="http://www.unipampa.lesse.org/canopus#/"/>
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario"/>
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario/canopusPerformanceWorkload"/>
       <defaultLayer name="Default">
-        <containerMappings name="TestContainer" label="Test Container" domainClass="canopusPerformanceWorkload::Test" childrenPresentation="VerticalStack">
-          <subContainerMappings name="TestDurationContainer" label="Test Duration Container" semanticCandidatesExpression="feature:testduration" domainClass="canopusPerformanceWorkload::TestDuration" childrenPresentation="List">
-            <subNodeMappings name="TestDurationNode" label="Test Duration " domainClass="canopusPerformanceWorkload::TestDuration">
+        <containerMappings name="TestContainer" label="Test Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload">
+          <subContainerMappings name="TestDurationContainer" label="Test Duration Container" semanticCandidatesExpression="feature:time" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="List">
+            <subNodeMappings name="TestDurationNode" label="Test Duration " semanticCandidatesExpression="feature:time" domainClass="canopusPerformanceScenario::Workload">
               <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:time" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -822,8 +822,8 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="VirtualUsersContainer" label="Virtual Users Container" semanticCandidatesExpression="feature:virtualusers" domainClass="canopusPerformanceWorkload::VirtualUsers" childrenPresentation="List">
-            <subNodeMappings name="VirtualUsersNode" label="Virtual Users Node" domainClass="canopusPerformanceWorkload::VirtualUsers">
+          <subContainerMappings name="VirtualUsersContainer" label="Virtual Users Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="List">
+            <subNodeMappings name="VirtualUsersNode" label="Virtual Users Node" semanticCandidatesExpression="aql:self.virtualUsers" domainClass="canopusPerformanceScenario::Workload">
               <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:virtualUsers" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
