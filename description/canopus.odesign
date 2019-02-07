@@ -281,7 +281,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="AssociationCriteriaThresholdNode" label="Association Criteria and threshold Node" semanticCandidatesExpression="feature:associationcountercriteriathreshold" domainClass="canopusPerformanceMetric::AssociationCounterCriteriaThreshold">
-          <style xsi:type="style:LozengeNodeDescription" showIcon="false" labelExpression="service:setLabelAssociationCriteriaThreshold()" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:LozengeNodeDescription" showIcon="false" labelExpression="service:" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -806,9 +806,9 @@
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario"/>
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario/canopusPerformanceWorkload"/>
       <defaultLayer name="Default">
-        <containerMappings name="TestContainer" label="Test Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload">
-          <subContainerMappings name="TestDurationContainer" label="Test Duration Container" semanticCandidatesExpression="feature:time" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="List">
-            <subNodeMappings name="TestDurationNode" label="Test Duration " semanticCandidatesExpression="feature:time" domainClass="canopusPerformanceScenario::Workload">
+        <containerMappings name="TestContainer" label="Test Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="VerticalStack">
+          <subContainerMappings name="TestDurationContainer" label="Test Duration Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="List">
+            <subNodeMappings name="TestDurationNode" label="Test Duration Node" semanticCandidatesExpression="aql:self" domainClass="canopusPerformanceScenario::Workload">
               <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:time" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -823,7 +823,7 @@
             </style>
           </subContainerMappings>
           <subContainerMappings name="VirtualUsersContainer" label="Virtual Users Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="List">
-            <subNodeMappings name="VirtualUsersNode" label="Virtual Users Node" semanticCandidatesExpression="aql:self.virtualUsers" domainClass="canopusPerformanceScenario::Workload">
+            <subNodeMappings name="VirtualUsersNode" label="Virtual Users Node" semanticCandidatesExpression="aql:self" domainClass="canopusPerformanceScenario::Workload">
               <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:virtualUsers" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -837,16 +837,16 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="RampDownContainer" label="Ramp Down Container" domainClass="canopusPerformanceWorkload::RampDownTest">
-            <subNodeMappings name="RampDownUsersNode" label="Ramp Down Users" semanticCandidatesExpression="feature:rampdownusers" domainClass="canopusPerformanceWorkload::RampDownUsers">
-              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="['Virtual Users = ' + virtualUsers /]" sizeComputationExpression="5" resizeKind="NSEW">
+          <subContainerMappings name="RampDownContainer" label="Ramp Down Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="List">
+            <subNodeMappings name="RampDownUsersNode" label="RampDown Users Node" labelDirectEdit="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20RampDown%20Users']" semanticCandidatesExpression="aql:self" domainClass="canopusPerformanceScenario::Workload">
+              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="['Virtual Users = ' + rampDownUsers.virtualUsers/]" sizeComputationExpression="5" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="RampDownTimerNode" label="Ramp Down Timer" semanticCandidatesExpression="feature:rampdowntimer" domainClass="canopusPerformanceWorkload::RampDownTimer">
-              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="['Time = ' + time /]" sizeComputationExpression="5" resizeKind="NSEW">
+            <subNodeMappings name="RampDownTimerNode" label="RampDown Timer Node" semanticCandidatesExpression="aql:self" domainClass="canopusPerformanceScenario::Workload">
+              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="['Time = ' +rampDownTimer.time/]" sizeComputationExpression="5" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -859,22 +859,22 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="RampUpContainer" label="Ramp Up Container" domainClass="canopusPerformanceWorkload::RampUpTest">
-            <subNodeMappings name="RampUpUsersNode" label="Ramp Up Users" semanticCandidatesExpression="feature:rampupusers" domainClass="canopusPerformanceWorkload::RampUpUsers">
-              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="['Virtual Users = ' + virtualUsers /]" sizeComputationExpression="5" resizeKind="NSEW">
+          <subContainerMappings name="RampUpContainer" label="Ramp Up Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="List">
+            <subNodeMappings name="RampUpUsersNode" label="RampUp Users Node" semanticCandidatesExpression="aql:self" domainClass="canopusPerformanceScenario::Workload">
+              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="['Virtual Users = ' + rampUpUsers.virtualUsers/]" sizeComputationExpression="5" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="RampUpTimerNode" label="Ramp Up Timer" semanticCandidatesExpression="feature:rampuptimer" domainClass="canopusPerformanceWorkload::RampUpTimer">
-              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="['Time = ' + time /]" sizeComputationExpression="5" resizeKind="NSEW">
+            <subNodeMappings name="RampUpTimerNode" label="RampUp Timer Node" semanticCandidatesExpression="aql:self" domainClass="canopusPerformanceScenario::Workload">
+              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="['Time = ' +rampUpTimer.time/]" sizeComputationExpression="5" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="Ramp Down">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="Ramp Up">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -888,7 +888,16 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </containerMappings>
+        <toolSections name="EditRampDownMenu" label="Edit RampDown Menu">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="Edit RampDown Users">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="virtualUsers" valueExpression="service:setIntegerLabels(arg0)"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
     </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="monitoring.canopus.design.Services"/>
   </ownedViewpoints>
 </description:Group>

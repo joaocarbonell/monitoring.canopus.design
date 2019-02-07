@@ -1,7 +1,9 @@
 package monitoring.canopus.design;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -22,6 +24,8 @@ import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Association
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Criteria;
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Disk;
 import canopus.canopusPerformanceScenario.*;
+import canopus.canopusPerformanceScenario.canopusPerformanceWorkload.RampDownTest;
+import canopus.canopusPerformanceScenario.canopusPerformanceWorkload.RampDownUsers;
 
 /**
  * 
@@ -36,7 +40,56 @@ public class Services {
 	
 	public void teste() {
 		System.out.print("fdd");
+		
 	}
+	
+	
+public int setIntegerLabels( Workload work, String value) {
+    	
+	//System.out.print("Teste 1 "+ value.getRampDownTest().getRampdownusers().getVirtualUsers() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+	
+    	List<Character>values = new ArrayList<>();
+    	
+    	int valuesInt =0;
+    
+    	
+    	
+    	
+    
+    	System.out.print("Teste print "+ value.toString() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+    	
+    	for(char c : value.toCharArray()) {
+    		
+    		if (Character.isDigit(c)) {
+    			System.out.print("Teste 456 "+ c +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+    			values.add(c);
+    		}
+    		
+    	}
+    	
+    	
+    	/*for(int finalValues = 0; 0 <= values.size();finalValues++) {
+
+    		
+    		System.out.print("Teste Values"+ values.get(finalValues) +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+char cont = values.get(finalValues) ;
+System.out.print("Teste CONT"+ cont +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+  
+  
+    	}*/
+    	
+    	String textValue = new String(values);
+    	
+    	System.out.print("Teste %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% " +textValue);
+ 
+    	
+    	
+    	
+    	return valuesInt;
+    	
+    }
+   
+	
     
     public String setLabelAssociationCriteriaThreshold(AssociationCounterCriteriaThreshold association) {
     	
@@ -75,6 +128,6 @@ public class Services {
     	
     }
     
-   
+    
     
 }
