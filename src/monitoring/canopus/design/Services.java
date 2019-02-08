@@ -3,6 +3,7 @@ package monitoring.canopus.design;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -24,7 +25,6 @@ import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Association
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Criteria;
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Disk;
 import canopus.canopusPerformanceScenario.*;
-import canopus.canopusPerformanceScenario.canopusPerformanceWorkload.RampDownTest;
 import canopus.canopusPerformanceScenario.canopusPerformanceWorkload.RampDownUsers;
 
 /**
@@ -44,17 +44,11 @@ public class Services {
 	}
 	
 	
-public int setIntegerLabels( Workload work, String value) {
-    	
-	//System.out.print("Teste 1 "+ value.getRampDownTest().getRampdownusers().getVirtualUsers() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+public void setIntegerLabelsRampDownUsers( Workload work, String value) {
 	
     	List<Character>values = new ArrayList<>();
     	
     	int valuesInt =0;
-    
-    	
-    	
-    	
     
     	System.out.print("Teste print "+ value.toString() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
     	
@@ -68,28 +62,192 @@ public int setIntegerLabels( Workload work, String value) {
     	}
     	
     	
-    	/*for(int finalValues = 0; 0 <= values.size();finalValues++) {
-
-    		
-    		System.out.print("Teste Values"+ values.get(finalValues) +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
-char cont = values.get(finalValues) ;
-System.out.print("Teste CONT"+ cont +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
-  
-  
-    	}*/
+    	char[]char1 = new char[values.size()];
+    	int i = 0;
+    	for(Iterator iter = values.iterator(); iter.hasNext(); i++) {
+    		char1[i] = ((Character)iter.next()).charValue();
+    	}
     	
-    	String textValue = new String(values);
+    	String textValue = new String(char1);
     	
-    	System.out.print("Teste %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% " +textValue);
- 
+    	valuesInt = Integer.valueOf(textValue);
     	
-    	
-    	
-    	return valuesInt;
+    
+    		work.getRampDownUsers().setVirtualUsers(valuesInt);
+    
     	
     }
-   
+
+public void setIntegerLabelsRampDownTimer( Workload work, String value) {
 	
+	List<Character>values = new ArrayList<>();
+	
+	int valuesInt =0;
+
+	System.out.print("Teste print "+ value.toString() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+	
+	for(char c : value.toCharArray()) {
+		
+		if (Character.isDigit(c)) {
+			System.out.print("Teste 456 "+ c +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+			values.add(c);
+		}
+		
+	}
+	
+	
+	char[]char1 = new char[values.size()];
+	int i = 0;
+	for(Iterator iter = values.iterator(); iter.hasNext(); i++) {
+		char1[i] = ((Character)iter.next()).charValue();
+	}
+	
+	String textValue = new String(char1);
+	
+	valuesInt = Integer.valueOf(textValue);
+	
+	
+	
+	work.getRampDownTimer().setTime(valuesInt);
+	
+	
+}
+   
+public void setIntegerLabelsRampUpUsers( Workload work, String value) {
+	
+	List<Character>values = new ArrayList<>();
+	
+	int valuesInt =0;
+
+	System.out.print("Teste print "+ value.toString() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+	
+	for(char c : value.toCharArray()) {
+		
+		if (Character.isDigit(c)) {
+			System.out.print("Teste 456 "+ c +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+			values.add(c);
+		}
+		
+	}
+	
+	
+	char[]char1 = new char[values.size()];
+	int i = 0;
+	for(Iterator iter = values.iterator(); iter.hasNext(); i++) {
+		char1[i] = ((Character)iter.next()).charValue();
+	}
+	
+	String textValue = new String(char1);
+	
+	valuesInt = Integer.valueOf(textValue);
+	
+	work.getRampUpUsers().setVirtualUsers(valuesInt);
+	
+	
+	
+}
+	
+public void setIntegerLabelsRampUpTimer( Workload work, String value) {
+
+	
+	List<Character>values = new ArrayList<>();
+	
+	int valuesInt =0;
+
+	System.out.print("Teste print "+ value.toString() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+	
+	for(char c : value.toCharArray()) {
+		
+		if (Character.isDigit(c)) {
+			System.out.print("Teste 456 "+ c +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+			values.add(c);
+		}
+		
+	}
+	
+	
+	char[]char1 = new char[values.size()];
+	int i = 0;
+	for(Iterator iter = values.iterator(); iter.hasNext(); i++) {
+		char1[i] = ((Character)iter.next()).charValue();
+	}
+	
+	String textValue = new String(char1);
+	
+	valuesInt = Integer.valueOf(textValue);
+	
+	
+	work.getRampUpTimer().setTime(valuesInt);
+	
+}
+
+public void setIntegerLabelsTestTime( Workload work, String value) {//TODO Mudar o tipo do tempo do teste(workload), para int, ao invés de string...
+	
+	List<Character>values = new ArrayList<>();
+	
+	int valuesInt =0;
+
+	System.out.print("Teste print "+ value.toString() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+	
+	for(char c : value.toCharArray()) {
+		
+		if (Character.isDigit(c)) {
+			System.out.print("Teste 456 "+ c +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+			values.add(c);
+		}
+		
+	}
+	
+	
+	char[]char1 = new char[values.size()];
+	int i = 0;
+	for(Iterator iter = values.iterator(); iter.hasNext(); i++) {
+		char1[i] = ((Character)iter.next()).charValue();
+	}
+	
+	String textValue = new String(char1);
+	
+	valuesInt = Integer.valueOf(textValue);
+	
+	
+	work.setTime(textValue);
+	
+	
+}
+	
+public void setIntegerLabelsTestUser( Workload work, String value) {
+	
+	List<Character>values = new ArrayList<>();
+	
+	int valuesInt =0;
+
+	System.out.print("Teste print "+ value.toString() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+	
+	for(char c : value.toCharArray()) {
+		
+		if (Character.isDigit(c)) {
+			System.out.print("Teste 456 "+ c +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+			values.add(c);
+		}
+		
+	}
+	
+	
+	char[]char1 = new char[values.size()];
+	int i = 0;
+	for(Iterator iter = values.iterator(); iter.hasNext(); i++) {
+		char1[i] = ((Character)iter.next()).charValue();
+	}
+	
+	String textValue = new String(char1);
+	
+	valuesInt = Integer.valueOf(textValue);
+	
+	
+	work.setVirtualUsers(valuesInt);
+	
+	
+}
     
     public String setLabelAssociationCriteriaThreshold(AssociationCounterCriteriaThreshold association) {
     	
