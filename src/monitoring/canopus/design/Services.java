@@ -24,6 +24,7 @@ import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.AssociationCounterCriteriaThreshold;
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Criteria;
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Disk;
+import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Metric;
 import canopus.canopusPerformanceScenario.*;
 import canopus.canopusPerformanceScenario.canopusPerformanceWorkload.RampDownUsers;
 
@@ -43,6 +44,43 @@ public class Services {
 		
 	}
 	
+public String setLabelAssociationCriteriaThreshold(AssociationCounterCriteriaThreshold association) {
+    	
+    	String type;
+    	int value = association.getAssociationCriteria().getValue();
+//    	EStructuralFeature es = association.eContainingFeature();
+//    	Criteria crit = association.getCriteria();
+    	//System.out.println(es.getClass());
+    	
+    	EObject raiz = association.eContainer().eAllContents().next();
+//    	System.out.println("Instancia do raiz" + eo.getClass());
+    	if(raiz instanceof Disk) {
+    		Disk disk = (Disk) raiz;
+    		
+    		String str = "<Disk name=\""+disk.getName()+"\" >";
+    		//System.out.println(str+"Gremio");
+    		str+='\n'+"    <Counter nmae= \""+disk.getDisk_io_counter().getName()+"\"/>";
+//    		disk.getDisk_io_counter().get
+    		str+="</Disk>";
+    		
+    		//TODO ou gera codigo
+    		System.out.println("code.xml");
+    		
+    		//TODO ou atualiza o campo de texto/console
+    		System.out.println(str);
+    	}
+    	if(value == 0){
+    		type = " "; 
+    	}else if(value == 1) {
+    		type = ">=";
+    	}else {
+    		type = "<";
+    	}
+    	
+    	return type;
+    	
+    }
+	
 	
 public void setIntegerLabelsRampDownUsers( Workload work, String value) {
 	
@@ -50,7 +88,7 @@ public void setIntegerLabelsRampDownUsers( Workload work, String value) {
     	
     	int valuesInt =0;
     
-    	System.out.print("Teste print "+ value.toString() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+    	System.out.print("Teste print? "+ value.toString() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
     	
     	for(char c : value.toCharArray()) {
     		
@@ -249,42 +287,7 @@ public void setIntegerLabelsTestUser( Workload work, String value) {
 	
 }
     
-    public String setLabelAssociationCriteriaThreshold(AssociationCounterCriteriaThreshold association) {
-    	
-    	String type;
-    	int value = association.getAssociationCriteria().getValue();
-//    	EStructuralFeature es = association.eContainingFeature();
-//    	Criteria crit = association.getCriteria();
-    	//System.out.println(es.getClass());
-    	
-    	EObject raiz = association.eContainer().eAllContents().next();
-//    	System.out.println("Instancia do raiz" + eo.getClass());
-    	if(raiz instanceof Disk) {
-    		Disk disk = (Disk) raiz;
-    		
-    		String str = "<Disk name=\""+disk.getName()+"\" >";
-    		//System.out.println(str+"Gremio");
-    		str+='\n'+"    <Counter nmae= \""+disk.getDisk_io_counter().getName()+"\"/>";
-//    		disk.getDisk_io_counter().get
-    		str+="</Disk>";
-    		
-    		//TODO ou gera codigo
-    		System.out.println("code.xml");
-    		
-    		//TODO ou atualiza o campo de texto/console
-    		System.out.println(str);
-    	}
-    	if(value == 0){
-    		type = " "; 
-    	}else if(value == 1) {
-    		type = ">=";
-    	}else {
-    		type = "<";
-    	}
-    	
-    	return type;
-    	
-    }
+
     
     
     
