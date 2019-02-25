@@ -21,6 +21,7 @@ import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 
+import canopus.canopusPerformanceMonitoring.LoadGenerator;
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.AssociationCounterCriteriaThreshold;
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Criteria;
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Disk;
@@ -43,7 +44,15 @@ public class Services {
 		System.out.print("fdd");
 		
 	}
-	
+	public String setLGImage(LoadGenerator lg) {
+		String path = "";
+		if (lg.isIsMonitor()) {
+			path = "/monitoring.canopus.design/icons/LoadGenerator.png";
+		}else {
+			path = "/monitoring.canopus.design/icons/LoadGeneratorMonitor.png";
+		}
+		return path;
+	}
 	
 public String setLabelAssociationCriteriaThreshold(AssociationCounterCriteriaThreshold association) {
     	
