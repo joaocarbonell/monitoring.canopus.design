@@ -44,7 +44,20 @@ public class Services {
 		System.out.print("fdd");
 		
 	}
-	public String setLGImage(LoadGenerator lg) {
+	
+public int setScriptUserrealtion(UserProfile user) {
+	
+	int value = 0;
+	
+	for(int i = 0; i<user.getScripting().size(); i++) {
+	value =+ user.getScripting().get(0).getDedicatedTime();
+	
+	}
+	int newValue = 0;
+	return value;
+}
+	
+public String setLGImage(LoadGenerator lg) {
 		String path = "";
 		if (lg.isIsMonitor()) {
 			path = "/monitoring.canopus.design/icons/LoadGenerator.png";
@@ -67,17 +80,17 @@ public String setLabelAssociationCriteriaThreshold(AssociationCounterCriteriaThr
     	if(raiz instanceof Disk) {
     		Disk disk = (Disk) raiz;
     		
-    		String str = "<Disk name=\""+disk.getName()+"\" >";
-    		//System.out.println(str+"Gremio");
-    		str+='\n'+"    <Counter nmae= \""+disk.getDisk_io_counter().getName()+"\"/>";
-//    		disk.getDisk_io_counter().get
-    		str+="</Disk>";
+//    		String str = "<Disk name=\""+disk.getName()+"\" >";
+//    		//System.out.println(str+"Gremio");
+//    		str+='\n'+"    <Counter nmae= \""+disk.getDisk_io_counter()+"\"/>";
+////    		disk.getDisk_io_counter().get
+//    		str+="</Disk>";
     		
     		//TODO ou gera codigo
     		System.out.println("code.xml");
     		
     		//TODO ou atualiza o campo de texto/console
-    		System.out.println(str);
+    //		System.out.println(str);
     	}
     	if(value == 0){
     		type = " "; 
