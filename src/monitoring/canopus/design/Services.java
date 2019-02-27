@@ -45,16 +45,13 @@ public class Services {
 		
 	}
 	
-public int setScriptUserrealtion(UserProfile user) {
+public String setScriptUserRelation(UserProfile user) {
 	
 	int value = 0;
 	
-	for(int i = 0; i<user.getScripting().size(); i++) {
-	value =+ user.getScripting().get(0).getDedicatedTime();
 	
-	}
-	int newValue = 0;
-	return value;
+	
+	return user.getName();
 }
 	
 public String setLGImage(LoadGenerator lg) {

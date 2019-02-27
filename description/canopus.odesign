@@ -385,7 +385,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <toolSections name="CretaionMetricsElements" label="Cretaion Metrics Elements">
+        <toolSections name="CreationMetricsElements" label="Creation Metrics Elements">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateDiskMetric" label="Disk Metric" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='Disk']" iconPath="/monitoring.canopus.design/icons/DiskMetricSmall.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -588,12 +588,12 @@
         <edgeMappings name="UserProfileToScript" label="User Profile To Script" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='UserProfileNode']" targetMapping="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='ScriptNode']" targetFinderExpression="feature:scripting">
           <style lineStyle="dash" sizeComputationExpression="6" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
-            <centerLabelStyleDescription showIcon="false" labelExpression="Não sei como resolver">
+            <centerLabelStyleDescription showIcon="false" labelExpression="service:setScriptUserRelation()">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <toolSections name="CretaionScenarioElements" label="Cretaion Scenario Elements">
+        <toolSections name="CreationScenarioElements" label="Creation Scenario Elements">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateUserProfile" label="User Profile" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='UserProfileNode']" iconPath="/monitoring.canopus.design/icons/UserProfileSmall.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
