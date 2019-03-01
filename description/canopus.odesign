@@ -573,7 +573,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="ScriptNode" label="Script Node" semanticCandidatesExpression="feature:scripting" doubleClickDescription="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateScript']" domainClass="canopusPerformanceScenario::Scripting">
-          <style xsi:type="style:EllipseNodeDescription" showIcon="false" tooltipExpression="Perfome two 'clicks' to open or create the Scripting Diagram" sizeComputationExpression="8" labelPosition="node" horizontalDiameterComputationExpression="15" verticalDiameterComputationExpression="10">
+          <style xsi:type="style:EllipseNodeDescription" borderLineStyle="dot" showIcon="false" tooltipExpression="Perfome two 'clicks' to open or create the Scripting Diagram" sizeComputationExpression="8" labelPosition="node" horizontalDiameterComputationExpression="15" verticalDiameterComputationExpression="10">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
@@ -585,10 +585,10 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="UserProfileToScript" label="User Profile To Script" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='UserProfileNode']" targetMapping="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='ScriptNode']" targetFinderExpression="feature:scripting">
-          <style lineStyle="dash" sizeComputationExpression="6" endsCentering="Both">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
-            <centerLabelStyleDescription showIcon="false" labelExpression="service:setScriptUserRelation()">
+        <edgeMappings name="UserProfileToScripting" label="UserProfile To Scripting" semanticCandidatesExpression="feature:userProfileToScript" sourceMapping="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='UserProfileNode']" targetMapping="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='ScriptNode']" targetFinderExpression="feature:scripting" sourceFinderExpression="feature:userprofile" domainClass="canopusPerformanceScenario::UserProfileToScript" useDomainElement="true">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="[timePercentage+'%'/]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -612,6 +612,9 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceScenario::Scripting" referenceName="scripting">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Script"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceScenario::UserProfileToScript" referenceName="userProfileToScript" variableName="instance2">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="scripting" valueExpression="var:instance"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -647,14 +650,17 @@
           </ownedTools>
         </toolSections>
         <toolSections name="RelationScenarioElementes" label="Relation Scenario Elements">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="UserProfileToScripting" label="UserProfile to Scripting" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@edgeMappings[name='UserProfileToScript']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="UserProfileToScripting" label="UserProfile to Scripting" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@edgeMappings[name='UserProfileToScripting']" iconPath="/monitoring.canopus.design/icons/UserProfileToScript.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="scripting" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceScenario::UserProfileToScript" referenceName="userProfileToScript">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="userprofile" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="scripting" valueExpression="var:target"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -866,86 +872,80 @@
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario"/>
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario/canopusPerformanceWorkload"/>
       <defaultLayer name="Default">
-        <containerMappings name="TestContainer" label="Test Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="HorizontalStack">
-          <subContainerMappings name="TestDurationContainer" label="Test Duration Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="List">
+        <containerMappings name="TestContainer" label="Test Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="VerticalStack">
+          <subContainerMappings name="TestDurationContainer" label="Test Duration Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload">
             <subNodeMappings name="TestDurationNode" label="Test Duration Node" labelDirectEdit="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EditTestTime']" semanticCandidatesExpression="aql:self" domainClass="canopusPerformanceScenario::Workload">
-              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:time" tooltipExpression="Press 'F2' to edit the test time duration value." labelPosition="node" resizeKind="NSEW">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="feature:time" tooltipExpression="Press 'F2' to edit the test time duration value." sizeComputationExpression="10" resizeKind="NSEW" workspacePath="/monitoring.canopus.design/icons/TestTimeDuration.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="Test Time Duration" widthComputationExpression="1" heightComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
           <subContainerMappings name="VirtualUsersContainer" label="Virtual Users Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload">
             <subNodeMappings name="VirtualUsersNode" label="Virtual Users Node" labelDirectEdit="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EditTestUsers']" semanticCandidatesExpression="aql:self" domainClass="canopusPerformanceScenario::Workload">
-              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="feature:virtualUsers" tooltipExpression="Press 'F2' to edit the test users value." labelPosition="node" resizeKind="NSEW">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="feature:virtualUsers" tooltipExpression="Press 'F2' to edit the test users value." sizeComputationExpression="6" workspacePath="/monitoring.canopus.design/icons/VirtualUsers.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="Virtual Users" widthComputationExpression="1" heightComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
           <subContainerMappings name="RampDownContainer" label="Ramp Down Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload">
             <subNodeMappings name="RampDownUsersNode" label="RampDown Users Node" labelDirectEdit="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20RampDown%20Users']" semanticCandidatesExpression="aql:self" doubleClickDescription="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateRampDownUsers']" domainClass="canopusPerformanceScenario::Workload">
-              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="['Virtual Users = ' + rampDownUsers.virtualUsers/]" tooltipExpression="Press 'F2' to edit the users value." sizeComputationExpression="5" resizeKind="NSEW">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Virtual Users = ' + self.rampDownUsers.virtualUsers/]" tooltipExpression=" Press 'F2' to edit the users value." sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/monitoring.canopus.design/icons/RampDownUsers.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="RampDownTimerNode" label="RampDown Timer Node" labelDirectEdit="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20RampDown%20Timer']" semanticCandidatesExpression="aql:self" doubleClickDescription="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateRampDownTimer%20Node']" domainClass="canopusPerformanceScenario::Workload">
-              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="['Time = ' +rampDownTimer.time/]" tooltipExpression="Press 'F2' to edit the time duration value." sizeComputationExpression="5" resizeKind="NSEW">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Time = ' +rampDownTimer.time/]" tooltipExpression="Press 'F2' to edit the time duration value." sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/monitoring.canopus.design/icons/RampDownTime.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="Ramp Down" tooltipExpression="If the value is displayed as invalid, performe two clicks." widthComputationExpression="1" heightComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="RampUpContainer" label="Ramp Up Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="List">
+          <subContainerMappings name="RampUpContainer" label="Ramp Up Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload">
             <subNodeMappings name="RampUpUsersNode" label="RampUp Users Node" labelDirectEdit="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20RampUpUsers']" semanticCandidatesExpression="aql:self" doubleClickDescription="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateRampUpUsersNode']" domainClass="canopusPerformanceScenario::Workload">
-              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="['Virtual Users = ' + rampUpUsers.virtualUsers/]" tooltipExpression="Press 'F2' to edit the users value." sizeComputationExpression="5" resizeKind="NSEW">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Virtual Users = ' + rampUpUsers.virtualUsers/]" tooltipExpression="Press 'F2' to edit the users value." sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/monitoring.canopus.design/icons/RampUpUsers.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="RampUpTimerNode" label="RampUp Timer Node" labelDirectEdit="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20RampUp%20Timer']" semanticCandidatesExpression="aql:self" doubleClickDescription="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateRampUpTimeNode']" domainClass="canopusPerformanceScenario::Workload">
-              <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="['Time = ' +rampUpTimer.time/]" tooltipExpression="Press 'F2' to edit the time duration value." sizeComputationExpression="5" resizeKind="NSEW">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Time = ' +rampUpTimer.time/]" tooltipExpression="Press 'F2' to edit the time duration value." sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/monitoring.canopus.design/icons/RampUpTime.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="Ramp Up" tooltipExpression="If the value is displayed as invalid, performe two clicks." widthComputationExpression="1" heightComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" tooltipExpression="If the value is displayed as invalid, performe two clicks." widthComputationExpression="1" heightComputationExpression="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
         </containerMappings>
         <toolSections name="EditRampMenu" label="Edit Ramp Menu">
@@ -958,13 +958,13 @@
           <ownedTools xsi:type="tool:DirectEditLabel" name="Edit RampDown Timer">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="rampDownTimer rampDownTimer" valueExpression="service:setIntegerLabelsRampDownTimer(0)"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="rampDownTimer" valueExpression="service:setIntegerLabelsRampDownTimer(0)"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DirectEditLabel" name="Edit RampUpUsers">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="rampUpUsers rampUpUsers" valueExpression="0"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="rampUpUsers rampUpUsers" valueExpression="service:setIntegerLabelsRampUpUsers(0)"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DirectEditLabel" name="Edit RampUp Timer">
