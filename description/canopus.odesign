@@ -26,7 +26,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="20" showIcon="false" labelExpression="[hostname +' (SUT)'/]" iconPath="/monitoring.canopus.design/icons/SUT.png" labelAlignment="RIGHT" tooltipExpression="Press 'F2' to edit the Load Generator Hostname" sizeComputationExpression="10" workspacePath="/monitoring.canopus.design/icons/SUT.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="20" showIcon="false" labelExpression="[hostname +' (SUT)'/]" iconPath="/monitoring.canopus.design/icons/SUT.png" labelAlignment="RIGHT" tooltipExpression="Press 'F2' to edit the Load Generator Hostname. Performe two 'clicks' to create or open a Metric Diagram." sizeComputationExpression="10" workspacePath="/monitoring.canopus.design/icons/SUT.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -79,7 +79,7 @@
           </conditionnalStyles>
         </nodeMappings>
         <edgeMappings name="SUTAssociationEdge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" targetMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" targetFinderExpression="feature:sut">
-          <style lineStyle="dash_dot" targetArrow="InputClosedArrow" sizeComputationExpression="4" routingStyle="manhattan" endsCentering="Both">
+          <style lineStyle="dash_dot" targetArrow="InputClosedArrow" sizeComputationExpression="3" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription labelSize="1" showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -87,7 +87,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="LGEdgeSUT" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='LoadGeneratorNode']" targetMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" targetFinderExpression="feature:sut">
-          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+          <style sizeComputationExpression="3" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -95,7 +95,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="LGEdgeMonitor" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='LoadGeneratorNode']" targetMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='MonitorNode']" targetFinderExpression="feature:monitor">
-          <style lineStyle="dot" sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+          <style lineStyle="dot" sizeComputationExpression="3" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -103,7 +103,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="MonitorEdge" sourceMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='MonitorNode']" targetMapping="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='SUTNode']" targetFinderExpression="feature:sut">
-          <style lineStyle="dot" sizeComputationExpression="4" routingStyle="manhattan" endsCentering="Both">
+          <style lineStyle="dot" sizeComputationExpression="3" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -338,7 +338,7 @@
           </style>
         </nodeMappings>
         <edgeMappings name="DiskToCounterEdge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='Disk']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='DiskCounterNode']" targetFinderExpression="feature:disk_io_counter">
-          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+          <style sizeComputationExpression="3" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -346,7 +346,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="MemoryToCounterEdge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='MemoryNode']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='MemoryCounterNode']" targetFinderExpression="feature:memoryCounter">
-          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+          <style sizeComputationExpression="3" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -354,7 +354,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="TransactionToCounterEdge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='Transaction']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='TransactionCounterNode']" targetFinderExpression="feature:transactionCounter">
-          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+          <style sizeComputationExpression="3" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -362,7 +362,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="CounterToAssociationEdge" label="Counter To Association Edge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='DiskCounterNode'] //@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='MemoryCounterNode'] //@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='TransactionCounterNode']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='AssociationCriteriaThresholdNode']" targetFinderExpression="feature:associationcountercriteriathreshold">
-          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+          <style sizeComputationExpression="3" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -370,7 +370,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="AssociationToThresholdEdge" label="Association To Threshold Edge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='AssociationCriteriaThresholdNode']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='ThresholdNode']" targetFinderExpression="feature:threshold">
-          <style targetArrow="OutputClosedArrow" sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+          <style targetArrow="OutputClosedArrow" sizeComputationExpression="3" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -378,9 +378,9 @@
           </style>
         </edgeMappings>
         <edgeMappings name="AssociationToCriteriaEdge" label="Association To Criteria Edge" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='AssociationCriteriaThresholdNode']" targetMapping="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='CriteriaNode']" targetFinderExpression="feature:criteria">
-          <style lineStyle="dash" targetArrow="InputFillClosedArrow" sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
+          <style lineStyle="dash" targetArrow="InputFillClosedArrow" sizeComputationExpression="3" routingStyle="manhattan" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <centerLabelStyleDescription>
+            <centerLabelStyleDescription showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -452,7 +452,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateThresholdNode" label="Threshold Metric" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='ThresholdNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateThresholdNode" label="Threshold Metric" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='ThresholdNode']" iconPath="/monitoring.canopus.design/icons/ThresholdSmall.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -461,7 +461,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateAssociationThresholdNode" label="Association and Threshold Metric" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='AssociationCriteriaThresholdNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateAssociationThresholdNode" label="Association and Threshold Metric" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='AssociationCriteriaThresholdNode']" iconPath="/monitoring.canopus.design/icons/AssociationSmall.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -470,7 +470,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateCriteriaNode" label="Criteria Metric" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='CriteriaNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateCriteriaNode" label="Criteria Metric" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='MetricDiagram']/@ownedRepresentations[name='Metric%20Diagram']/@defaultLayer/@nodeMappings[name='CriteriaNode']" iconPath="/monitoring.canopus.design/icons/CriteriaSmall.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -567,7 +567,7 @@
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario/canopusPerformanceScripting"/>
       <defaultLayer name="Default">
         <nodeMappings name="UserProfileNode" label="User Profile Node" semanticCandidatesExpression="feature:users" domainClass="canopusPerformanceScenario::UserProfile">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="7" workspacePath="/monitoring.canopus.design/icons/UserProfile.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[name+' ' + percentage+'%'/]" sizeComputationExpression="7" workspacePath="/monitoring.canopus.design/icons/UserProfile.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -586,9 +586,9 @@
           </style>
         </nodeMappings>
         <edgeMappings name="UserProfileToScripting" label="UserProfile To Scripting" semanticCandidatesExpression="feature:userProfileToScript" sourceMapping="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='UserProfileNode']" targetMapping="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='ScriptNode']" targetFinderExpression="feature:scripting" sourceFinderExpression="feature:userprofile" domainClass="canopusPerformanceScenario::UserProfileToScript" useDomainElement="true">
-          <style targetArrow="NoDecoration" sizeComputationExpression="2">
+          <style targetArrow="InputArrowWithDiamond" sizeComputationExpression="3" foldingStyle="SOURCE">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-            <centerLabelStyleDescription showIcon="false" labelExpression="[timePercentage+'%'/]">
+            <centerLabelStyleDescription labelExpression="[timePercentage+'%'/]" iconPath="/monitoring.canopus.design/icons/PieChart.png">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -605,7 +605,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateScripting" label="Script" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='ScriptNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateScripting" label="Script" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='ScriptNode']" iconPath="/monitoring.canopus.design/icons/ScriptSmall.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -650,7 +650,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="RelationScenarioElementes" label="Relation Scenario Elements">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="UserProfileToScripting" label="UserProfile to Scripting" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@edgeMappings[name='UserProfileToScripting']" iconPath="/monitoring.canopus.design/icons/UserProfileToScript.gif">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="UserProfileToScripting" label="User Profile to Scripting" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@edgeMappings[name='UserProfileToScripting']" iconPath="/monitoring.canopus.design/icons/UserProfileToScript.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -675,82 +675,109 @@
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario/canopusPerformanceScripting"/>
       <defaultLayer name="Default">
         <nodeMappings name="InitialNode" label="Initial Node" semanticCandidatesExpression="feature:initial" domainClass="canopusPerformanceScripting::Initial">
-          <style xsi:type="style:DotDescription" showIcon="false" labelExpression="Initial" sizeComputationExpression="5">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="Initial" sizeComputationExpression="5" workspacePath="/monitoring.canopus.design/icons/Initial.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="FinalNode" label="Final Node" semanticCandidatesExpression="feature:final" domainClass="canopusPerformanceScripting::Final">
-          <style xsi:type="style:LozengeNodeDescription" showIcon="false" labelExpression="Final" sizeComputationExpression="5">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="Final" sizeComputationExpression="5" workspacePath="/monitoring.canopus.design/icons/Final.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="ActivityNode" label="Activity Node" semanticCandidatesExpression="feature:activities" domainClass="canopusPerformanceScripting::Activity">
-          <style xsi:type="style:EllipseNodeDescription" showIcon="false" sizeComputationExpression="7" labelPosition="node" resizeKind="NSEW">
+          <borderedNodeMappings name="BorderedScript" label="Bordered Script" semanticCandidatesExpression="feature:scripting" doubleClickDescription="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ScriptNavegation']" domainClass="canopusPerformanceScenario::Scripting">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="20" showIcon="false" labelExpression="" iconPath="/monitoring.canopus.design/icons/ThinkTimeSmall.gif" sizeComputationExpression="2" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/ThinkTimeSmall.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="10" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/Activity.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
           </style>
+          <conditionnalStyles predicateExpression="aql:self.parameterhiddenobject != null and self.loopInstances > 1 ">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="11" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/ActivityTagLoop.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.loopInstances > 1">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="10" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/ActivityLoop.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.parameterhiddenobject != null">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="10" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/ActivityTag.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="DataTableNode" label="DataTable Node" semanticCandidatesExpression="feature:datatables" domainClass="canopusPerformanceScripting::DataTable">
-          <style xsi:type="style:SquareDescription" labelExpression="feature:delimeter" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:delimeter" workspacePath="/monitoring.canopus.design/icons/DataTable.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="ThinkTimeNode" label="ThinkTime Node" semanticCandidatesExpression="feature:thinkTime" domainClass="canopusPerformanceScripting::ThinkTime">
-          <style xsi:type="style:EllipseNodeDescription" showIcon="false" labelExpression="[time + 's'/]" sizeComputationExpression="7" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="feature:time" sizeComputationExpression="5" workspacePath="/monitoring.canopus.design/icons/ThinkTime.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="SaveParametersNode" label="SaveParameters Node" domainClass="canopusPerformanceScripting::SaveParameters">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="5" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/SaveParamenters.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <edgeMappings name="InitialToActivity" label="Initial To Activity" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='InitialNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activity">
-          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          <style strokeColor="//@userColorsPalettes[name='CanopusColors']/@entries[name='BlueCanopus']" sizeComputationExpression="3" routingStyle="manhattan" endsCentering="Target">
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
         <edgeMappings name="ActivityToFinal" label="Activity To Final" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='FinalNode']" targetFinderExpression="feature:final">
-          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          <style strokeColor="//@userColorsPalettes[name='CanopusColors']/@entries[name='BlueCanopus']" sizeComputationExpression="3" routingStyle="manhattan" foldingStyle="SOURCE" endsCentering="Target">
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
         <edgeMappings name="ActivityToThinkTime" label="Activity To Think Time" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ThinkTimeNode']" targetFinderExpression="feature:thinktime">
-          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          <style strokeColor="//@userColorsPalettes[name='CanopusColors']/@entries[name='BlueCanopus']" sizeComputationExpression="3" routingStyle="manhattan" foldingStyle="SOURCE" endsCentering="Both">
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
         <edgeMappings name="ThinkTimeToActivity" label="Think Time To Activity" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ThinkTimeNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activity">
-          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          <style strokeColor="//@userColorsPalettes[name='CanopusColors']/@entries[name='BlueCanopus']" sizeComputationExpression="3" routingStyle="manhattan" endsCentering="Both">
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ActivityToActivity" label="Activity To Activity" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activity">
-          <style sizeComputationExpression="6" routingStyle="manhattan" endsCentering="Both">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+        <edgeMappings name="DataTableToActivity" label="DataTable To Activity" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='DataTableNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activity">
+          <style strokeColor="//@userColorsPalettes[name='CanopusColors']/@entries[name='BlueCanopus']" lineStyle="dash" sizeComputationExpression="3" routingStyle="manhattan" foldingStyle="TARGET" endsCentering="Both">
             <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ActivityToActivity" label="Activity To Activity" semanticCandidatesExpression="feature:activityToActivity" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activies" sourceFinderExpression="feature:activity" domainClass="canopusPerformanceScripting::ActivityToActivity" useDomainElement="true">
+          <style strokeColor="//@userColorsPalettes[name='CanopusColors']/@entries[name='BlueCanopus']" sizeComputationExpression="3" routingStyle="manhattan" foldingStyle="TARGET" endsCentering="Both">
+            <centerLabelStyleDescription labelExpression="[timePercentage+'%'/]" iconPath="/monitoring.canopus.design/icons/PieChartSmall.gif">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
         <toolSections name="CretaionMetricsElements" label="Cretaion Metrics Elements">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateInitialNode" label="Intial" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='InitialNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateInitialNode" label="Intial" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='InitialNode']" iconPath="/monitoring.canopus.design/icons/InitialSmall.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -761,7 +788,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateFinalNode" label="Final" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='FinalNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateFinalNode" label="Final" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='FinalNode']" iconPath="/monitoring.canopus.design/icons/FinalSmall.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -772,7 +799,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateActivityNode" label="Activity" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateActivityNode" label="Activity" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" iconPath="/monitoring.canopus.design/icons/ActivitySmall.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -783,7 +810,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateThinkTimeNode" label="Think Time" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ThinkTimeNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateThinkTimeNode" label="Think Time" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ThinkTimeNode']" iconPath="/monitoring.canopus.design/icons/ThinkTimeSmall.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -794,13 +821,33 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateDataTableNode" label="Data Table" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='DataTableNode']" iconPath="/monitoring.canopus.design/icons/Metric.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateDataTableNode" label="Data Table" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='DataTableNode']" iconPath="/monitoring.canopus.design/icons/DataTableSmall.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceScripting::DataTable" referenceName="datatables">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="delimeter" valueExpression="feature:delimeter"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="ScriptNavegation" label="Script Navegation" forceRefresh="true" mappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']/@borderedNodeMappings[name='BorderedScript']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="SaveParametersNode" label="SaveParameters" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='SaveParametersNode']" iconPath="/monitoring.canopus.design/icons/SaveParamentersSmall.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceScripting::SaveParameters" referenceName="saveparameters">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="feature:name"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -829,14 +876,17 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ActivityToActivity" label="Activity to Activity" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@edgeMappings[name='ActivityToActivity']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ActivityToActivity" label="Activity to Activity" precondition="aql:preTarget.differs(preSource) and preTarget.differs(preSource.activitytoactivity.activies)" forceRefresh="true" inverseSelectionOrder="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@edgeMappings[name='ActivityToActivity']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[source.eContainer()/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="canopusPerformanceScripting::ActivityToActivity" referenceName="activityToActivity">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="activies" valueExpression="var:target"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -847,11 +897,22 @@
             <targetViewVariable name="targetView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:target"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="thinktime" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="ThinkTimeToActivity" label="Think Time To Activity" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@edgeMappings[name='ThinkTimeToActivity']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="activity" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="DataTableToActivity" label="DataTable To Activity" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@edgeMappings[name='DataTableToActivity']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -872,10 +933,30 @@
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario"/>
       <metamodel href="http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario/canopusPerformanceWorkload"/>
       <defaultLayer name="Default">
-        <containerMappings name="TestContainer" label="Test Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="VerticalStack">
+        <containerMappings name="TestContainer" label="Test Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload" childrenPresentation="HorizontalStack">
+          <subContainerMappings name="RampUpContainer" label="Ramp Up Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload">
+            <subNodeMappings name="RampUpUsersNode" label="RampUp Users Node" labelDirectEdit="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20RampUpUsers']" semanticCandidatesExpression="aql:self" doubleClickDescription="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateRampUpUsersNode']" domainClass="canopusPerformanceScenario::Workload">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Virtual Users = ' + rampUpUsers.virtualUsers/]" tooltipExpression="Press 'F2' to edit the users value." sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/monitoring.canopus.design/icons/RampUpUsers.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="RampUpTimerNode" label="RampUp Timer Node" labelDirectEdit="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20RampUp%20Timer']" semanticCandidatesExpression="aql:self" doubleClickDescription="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateRampUpTimeNode']" domainClass="canopusPerformanceScenario::Workload">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Time = ' +rampUpTimer.time/]" tooltipExpression="Press 'F2' to edit the time duration value." sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/monitoring.canopus.design/icons/RampUpTime.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="Ramp Up" tooltipExpression="If the value is displayed as invalid, performe two clicks." widthComputationExpression="1" heightComputationExpression="1">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subContainerMappings>
           <subContainerMappings name="TestDurationContainer" label="Test Duration Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload">
             <subNodeMappings name="TestDurationNode" label="Test Duration Node" labelDirectEdit="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='EditTestTime']" semanticCandidatesExpression="aql:self" domainClass="canopusPerformanceScenario::Workload">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="feature:time" tooltipExpression="Press 'F2' to edit the test time duration value." sizeComputationExpression="10" resizeKind="NSEW" workspacePath="/monitoring.canopus.design/icons/TestTimeDuration.png">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="feature:time" tooltipExpression="Press 'F2' to edit the test time duration value." sizeComputationExpression="5" workspacePath="/monitoring.canopus.design/icons/TestTimeDuration.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
@@ -915,26 +996,6 @@
               </style>
             </subNodeMappings>
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="Ramp Down" tooltipExpression="If the value is displayed as invalid, performe two clicks." widthComputationExpression="1" heightComputationExpression="1">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </style>
-          </subContainerMappings>
-          <subContainerMappings name="RampUpContainer" label="Ramp Up Container" semanticCandidatesExpression="var:self" domainClass="canopusPerformanceScenario::Workload">
-            <subNodeMappings name="RampUpUsersNode" label="RampUp Users Node" labelDirectEdit="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20RampUpUsers']" semanticCandidatesExpression="aql:self" doubleClickDescription="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateRampUpUsersNode']" domainClass="canopusPerformanceScenario::Workload">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Virtual Users = ' + rampUpUsers.virtualUsers/]" tooltipExpression="Press 'F2' to edit the users value." sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/monitoring.canopus.design/icons/RampUpUsers.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <subNodeMappings name="RampUpTimerNode" label="RampUp Timer Node" labelDirectEdit="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Edit%20RampUp%20Timer']" semanticCandidatesExpression="aql:self" doubleClickDescription="//@ownedViewpoints[name='WorkLoadDiagram']/@ownedRepresentations[name='WorkLoadDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateRampUpTimeNode']" domainClass="canopusPerformanceScenario::Workload">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Time = ' +rampUpTimer.time/]" tooltipExpression="Press 'F2' to edit the time duration value." sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/monitoring.canopus.design/icons/RampUpTime.png">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              </style>
-            </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="Ramp Up" tooltipExpression="If the value is displayed as invalid, performe two clicks." widthComputationExpression="1" heightComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -1028,4 +1089,7 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="monitoring.canopus.design.Services"/>
   </ownedViewpoints>
+  <userColorsPalettes name="CanopusColors">
+    <entries xsi:type="description:UserFixedColor" red="0" green="127" blue="255" name="BlueCanopus"/>
+  </userColorsPalettes>
 </description:Group>
