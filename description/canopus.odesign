@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="canopus" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="canopus" version="12.0.0.2017041100">
   <ownedViewpoints name="Monitoring Diagram">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Monitoring Diagram" initialisation="true" domainClass="canopus::Monitoring" enablePopupBars="true">
       <metamodel href="http://www.unipampa.lesse.org/canopus#/"/>
@@ -17,16 +17,13 @@
             </style>
           </borderedNodeMappings>
           <borderedNodeMappings name="ipSUTNodeNote" labelDirectEdit="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SUTIPDirectEdit']" semanticCandidatesExpression="[self/]" domainClass="canopusPerformanceMonitoring::SUT">
-            <style xsi:type="style:NoteDescription" labelSize="20" showIcon="false" labelExpression="[' IP: ' + ip/]" tooltipExpression="Press 'F2' to edit the Load Generator IP" sizeComputationExpression="1">
+            <style xsi:type="style:NoteDescription" labelSize="15" showIcon="false" labelExpression="[' IP: ' + ip/]" tooltipExpression="Press 'F2' to edit the Load Generator IP" sizeComputationExpression="1" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <forbiddenSides>WEST</forbiddenSides>
-              <forbiddenSides>EAST</forbiddenSides>
-              <forbiddenSides>NORTH</forbiddenSides>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="20" showIcon="false" labelExpression="[hostname +' (SUT)'/]" iconPath="/monitoring.canopus.design/icons/SUT.png" labelAlignment="RIGHT" tooltipExpression="Press 'F2' to edit the Load Generator Hostname. Performe two 'clicks' to create or open a Metric Diagram." sizeComputationExpression="10" workspacePath="/monitoring.canopus.design/icons/SUT.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="15" showIcon="false" labelExpression="[hostname +' (SUT)'/]" iconPath="/monitoring.canopus.design/icons/SUT.png" tooltipExpression="Press 'F2' to edit the Load Generator Hostname. Performe two 'clicks' to create or open a Metric Diagram." sizeComputationExpression="10" workspacePath="/monitoring.canopus.design/icons/SUT.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -697,27 +694,9 @@
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="aql:self.parameterhiddenobject != null and self.loopInstances > 1 ">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="11" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/ActivityTagLoop.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </conditionnalStyles>
-          <conditionnalStyles predicateExpression="aql:self.loopInstances > 1">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="10" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/ActivityLoop.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </conditionnalStyles>
-          <conditionnalStyles predicateExpression="aql:self.parameterhiddenobject != null">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="10" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/ActivityTag.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="DataTableNode" label="DataTable Node" semanticCandidatesExpression="feature:datatables" domainClass="canopusPerformanceScripting::DataTable">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:delimeter" workspacePath="/monitoring.canopus.design/icons/DataTable.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" labelExpression="feature:attachedFile" workspacePath="/monitoring.canopus.design/icons/DataTable.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -742,14 +721,16 @@
           </style>
         </edgeMappings>
         <edgeMappings name="ActivityToFinal" label="Activity To Final" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='FinalNode']" targetFinderExpression="feature:final">
-          <style strokeColor="//@userColorsPalettes[name='CanopusColors']/@entries[name='BlueCanopus']" sizeComputationExpression="3" routingStyle="manhattan" foldingStyle="SOURCE" endsCentering="Target">
+          <style sizeComputationExpression="3" routingStyle="manhattan" foldingStyle="SOURCE" endsCentering="Target">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
         <edgeMappings name="ActivityToThinkTime" label="Activity To Think Time" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ThinkTimeNode']" targetFinderExpression="feature:thinktime">
-          <style strokeColor="//@userColorsPalettes[name='CanopusColors']/@entries[name='BlueCanopus']" sizeComputationExpression="3" routingStyle="manhattan" foldingStyle="SOURCE" endsCentering="Both">
+          <style sizeComputationExpression="3" routingStyle="manhattan" foldingStyle="SOURCE" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
@@ -852,6 +833,108 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="ActivityDataTabe" precondition="aql:self.oclAsType(canopusPerformanceScripting::DataTable)" candidatesExpression="aql:self" iconPath="/monitoring.canopus.design/icons/DataTableSmall.gif" windowImagePath="/monitoring.canopus.design/icons/DataTableSmall.gif">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="O meu">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation/>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation/>
+                </buttons>
+                <page name="Default Page" labelExpression="Page" groups="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActivityDataTabe']/@initialOperation/@firstModelOperations/@groups.0 //@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActivityDataTabe']/@initialOperation/@firstModelOperations/@groups.1"/>
+                <groups name="Default Group" labelExpression="Group" domainClass="canopusPerformanceScripting::DataTable">
+                  <controls xsi:type="properties:ButtonDescription" name="EditParameters" label="Edit Parameters" labelExpression="Add parameters">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
+                        <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                          <initialOperation/>
+                        </buttons>
+                        <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                          <initialOperation/>
+                        </buttons>
+                        <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ActivityDataTabe']/@initialOperation/@firstModelOperations/@groups.0/@controls.0/@initialOperation/@firstModelOperations/@groups.0" indented="true"/>
+                        <groups name="Default Group Columns" labelExpression="Group" domainClass="canopusPerformanceScripting::ColumnsHiddenObject" semanticCandidateExpression="feature:eAllContents">
+                          <controls xsi:type="properties:TextDescription" name="canopusPerformanceScripting::ColumnsHiddenObject referendedParameter" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('referendedParameter')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('referendedParameter'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('referendedParameter').changeable" valueExpression="aql:self.referendedParameter">
+                            <initialOperation>
+                              <firstModelOperations xsi:type="tool_1:SetValue" featureName="referendedParameter" valueExpression="var:newValue"/>
+                            </initialOperation>
+                          </controls>
+                          <controls xsi:type="properties:RadioDescription" name="canopusPerformanceScripting::ColumnsHiddenObject selectnextrow" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('selectnextrow')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('selectnextrow'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('selectnextrow').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('selectnextrow').eType.getEEnumLiteralByLiteral(self.selectnextrow.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('selectnextrow').eType.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="5">
+                            <initialOperation>
+                              <firstModelOperations xsi:type="tool_1:SetValue" featureName="selectnextrow" valueExpression="aql:newValue.instance"/>
+                            </initialOperation>
+                          </controls>
+                          <controls xsi:type="properties:RadioDescription" name="canopusPerformanceScripting::ColumnsHiddenObject updatedvalueon" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('updatedvalueon')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('updatedvalueon'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('updatedvalueon').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('updatedvalueon').eType.getEEnumLiteralByLiteral(self.updatedvalueon.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('updatedvalueon').eType.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="5">
+                            <initialOperation>
+                              <firstModelOperations xsi:type="tool_1:SetValue" featureName="updatedvalueon" valueExpression="aql:newValue.instance"/>
+                            </initialOperation>
+                          </controls>
+                          <controls xsi:type="properties:TextDescription" name="canopusPerformanceScripting::ColumnsHiddenObject parameterName" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('parameterName')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('parameterName'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('parameterName').changeable" valueExpression="aql:self.parameterName">
+                            <initialOperation>
+                              <firstModelOperations xsi:type="tool_1:SetValue" featureName="parameterName" valueExpression="var:newValue"/>
+                            </initialOperation>
+                          </controls>
+                        </groups>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="canopusPerformanceScripting::DataTable attachedFile" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('attachedFile')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('attachedFile'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('attachedFile').changeable" valueExpression="aql:self.attachedFile">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="attachedFile" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="canopusPerformanceScripting::DataTable delimeter" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('delimeter')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('delimeter'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('delimeter').changeable" valueExpression="aql:self.delimeter">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="delimeter" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="canopusPerformanceScripting::DataTable activity" referenceNameExpression="aql:'activity'"/>
+                  <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="canopusPerformanceScripting::DataTable columnshiddenobject" referenceNameExpression="aql:'columnshiddenobject'"/>
+                </groups>
+                <groups name="sffsd" domainClass="canopusPerformanceScripting::Activity">
+                  <controls xsi:type="properties:TextDescription" name="canopusPerformanceScripting::Activity name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="canopusPerformanceScripting::Activity action" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('action')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('action'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('action').changeable" valueExpression="aql:self.action">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="action" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:CheckboxDescription" name="canopusPerformanceScripting::Activity method" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('method'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('method'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('method').changeable" valueExpression="aql:self.method">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="method" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:RadioDescription" name="canopusPerformanceScripting::Activity typeAction" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('typeAction')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('typeAction'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('typeAction').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('typeAction').eType.getEEnumLiteralByLiteral(self.typeAction.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('typeAction').eType.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="5">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="typeAction" valueExpression="aql:newValue.instance"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="canopusPerformanceScripting::Activity loopInstances" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('loopInstances')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('loopInstances'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('loopInstances').changeable" valueExpression="aql:self.loopInstances">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="loopInstances" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="canopusPerformanceScripting::Activity parameterhiddenobject" referenceNameExpression="aql:'parameterhiddenobject'"/>
+                  <controls xsi:type="properties:CheckboxDescription" name="canopusPerformanceScripting::Activity transaction" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('transaction'))" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('transaction'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('transaction').changeable" valueExpression="aql:self.transaction">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="transaction" valueExpression="var:newValue"/>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="canopusPerformanceScripting::Activity final" referenceNameExpression="aql:'final'"/>
+                  <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="canopusPerformanceScripting::Activity thinktime" referenceNameExpression="aql:'thinktime'"/>
+                  <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="canopusPerformanceScripting::Activity scripting" referenceNameExpression="aql:'scripting'"/>
+                  <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="canopusPerformanceScripting::Activity activitytoactivity" referenceNameExpression="aql:'activitytoactivity'"/>
+                </groups>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="RelationMetricsElementes" label="Relation Metrics Elementes">
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="InitialToActivity" label="Initial to Activity" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@edgeMappings[name='InitialToActivity']">
@@ -924,6 +1007,17 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.loopInstances > 1 and self.parameterhiddenobject = null">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']/@style" attributeName="workspacePath" value="/monitoring.canopus.design/icons/ActivityLoop.png"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.parameterhiddcenobject != null  and self.loopInstfances = 1">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']/@style" attributeName="workspacePath" value="/monitoring.canopus.design/icons/ActivityTag.png"/>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.parameterhicddenobject != null and self.loopInstances >= 2">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']/@style" attributeName="workspacePath" value="/monitoring.canopus.design/icons/ActivityTagLoop.png"/>
+          </vsmElementCustomizations>
+        </customization>
       </defaultLayer>
     </ownedRepresentations>
   </ownedViewpoints>
