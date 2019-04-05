@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="canopus" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="canopus" version="12.0.0.2017041100">
   <ownedViewpoints name="Monitoring Diagram">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Monitoring Diagram" initialisation="true" domainClass="canopus::Monitoring" enablePopupBars="true">
       <metamodel href="http://www.unipampa.lesse.org/canopus#/"/>
@@ -685,7 +685,7 @@
         </nodeMappings>
         <nodeMappings name="ActivityNode" label="Activity Node" semanticCandidatesExpression="feature:activities" domainClass="canopusPerformanceScripting::Activity">
           <borderedNodeMappings name="BorderedScript" label="Bordered Script" semanticCandidatesExpression="feature:scripting" doubleClickDescription="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ScriptNavegation']" domainClass="canopusPerformanceScenario::Scripting">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="20" showIcon="false" labelExpression="" iconPath="/monitoring.canopus.design/icons/ThinkTimeSmall.gif" sizeComputationExpression="2" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/ThinkTimeSmall.gif">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="20" showIcon="false" labelExpression="" iconPath="/monitoring.canopus.design/icons/ThinkTimeSmall.gif" tooltipExpression="aql:self.name" sizeComputationExpression="2" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/ThinkTimeSmall.gif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
@@ -722,7 +722,7 @@
         </edgeMappings>
         <edgeMappings name="ActivityToFinal" label="Activity To Final" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='FinalNode']" targetFinderExpression="feature:final">
           <style strokeColor="//@userColorsPalettes[name='CanopusColors']/@entries[name='BlueCanopus']" sizeComputationExpression="3" routingStyle="manhattan" foldingStyle="SOURCE" endsCentering="Target">
-            <centerLabelStyleDescription>
+            <centerLabelStyleDescription iconPath="/monitoring.canopus.design/icons/target.png">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -750,7 +750,7 @@
         </edgeMappings>
         <edgeMappings name="ActivityToActivity" label="Activity To Activity" semanticCandidatesExpression="feature:activityToActivity" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetFinderExpression="feature:activies" sourceFinderExpression="feature:activity" domainClass="canopusPerformanceScripting::ActivityToActivity" useDomainElement="true">
           <style strokeColor="//@userColorsPalettes[name='CanopusColors']/@entries[name='BlueCanopus']" sizeComputationExpression="3" routingStyle="manhattan" foldingStyle="TARGET" endsCentering="Both">
-            <centerLabelStyleDescription labelExpression="[timePercentage+'%'/]" iconPath="/monitoring.canopus.design/icons/PieChartSmall.gif">
+            <centerLabelStyleDescription labelExpression="aql:self.timePercentage +'%'" iconPath="/monitoring.canopus.design/icons/PieChartSmall.gif">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -838,7 +838,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="DataTableparameterWizard" label="Parameter Edit" precondition="aql:self.oclAsType(canopusPerformanceScripting::DataTable)" candidatesExpression="aql:self" multiple="true" iconPath="/monitoring.canopus.design/icons/EditParameter.png" windowImagePath="/monitoring.canopus.design/icons/EditParameter.png">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="DataTableparameterWizard" label="Parameter Edit" precondition="aql:self.oclAsType(canopusPerformanceScripting::DataTable)" candidatesExpression="aql:self" multiple="true" iconPath="/monitoring.canopus.design/icons/EditParameterSmall.png" windowTitle="Parameters Edit" windowImagePath="/monitoring.canopus.design/icons/EditParameterSmall.png">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -883,7 +883,7 @@
                     </initialOperation>
                   </actions>
                 </page>
-                <groups name="Default Group" labelExpression="Group" domainClass="canopusPerformanceScripting::ColumnsHiddenObject" semanticCandidateExpression="feature:eAllContents">
+                <groups name="Default Group" domainClass="canopusPerformanceScripting::ColumnsHiddenObject" semanticCandidateExpression="feature:eAllContents">
                   <controls xsi:type="properties:TextDescription" name="canopusPerformanceScripting::ColumnsHiddenObject referendedParameter" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('referendedParameter')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('referendedParameter'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('referendedParameter').changeable" valueExpression="aql:self.referendedParameter">
                     <initialOperation>
                       <firstModelOperations xsi:type="tool_1:SetValue" featureName="referendedParameter" valueExpression="var:newValue"/>
@@ -979,7 +979,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ActivityToSaveParameters" label="Activity to Save Parameters" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@edgeMappings[name='ActivityToSaveParameter']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ActivityToSaveParameters" label="Activity to Save Parameters" forceRefresh="true" edgeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@edgeMappings[name='ActivityToSaveParameter']" iconPath="/monitoring.canopus.design/icons/ActivityToSaveParameterSmall.gif">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -991,7 +991,16 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="Transaction" position="NORTH_EAST" preconditionExpression="aql:self.transaction = true" imageExpression="/monitoring.canopus.design/icons/Plus.png" domainClass="canopusPerformanceScripting::Activity"/>
+        </decorationDescriptionsSet>
       </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="ParameterTable" label="Parameter Table" titleExpression="Parameters Table" domainClass="canopusPerformanceScripting::DataTable">
+      <ownedLineMappings name="ParameterLine" domainClass="canopusPerformanceScripting::ColumnsHiddenObject" semanticCandidatesExpression="feature:columnshiddenobject" headerLabelExpression="feature:parameterName"/>
+      <ownedColumnMappings name="ReferendedParameter" label="Referended Parameter" headerLabelExpression="Referended Parameter" featureName="referendedParameter"/>
+      <ownedColumnMappings name="SelectNextRow" label="Select Next Row" headerLabelExpression="Select Next Row" featureName="selectnextrow" labelExpression="feature:selectnextrow"/>
+      <ownedColumnMappings name="UpdatedValueOn" label="Updated Value On" headerLabelExpression="Updated Value On" featureName="updatedvalueon"/>
     </ownedRepresentations>
   </ownedViewpoints>
   <ownedViewpoints name="WorkLoadDiagram" label="WorkLoad Diagram">
