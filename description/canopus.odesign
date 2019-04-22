@@ -570,10 +570,9 @@
           </style>
         </nodeMappings>
         <nodeMappings name="ScriptNode" label="Script Node" semanticCandidatesExpression="feature:scripting" doubleClickDescription="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateScript']" domainClass="canopusPerformanceScenario::Scripting">
-          <style xsi:type="style:EllipseNodeDescription" borderLineStyle="dot" showIcon="false" tooltipExpression="Perfome two 'clicks' to open or create the Scripting Diagram" sizeComputationExpression="8" labelPosition="node" horizontalDiameterComputationExpression="15" verticalDiameterComputationExpression="10">
+          <style xsi:type="style:EllipseNodeDescription" borderLineStyle="dot" showIcon="false" sizeComputationExpression="8" labelPosition="node" color="//@userColorsPalettes[name='CanopusColors']/@entries[name='BlueCanopus2']" horizontalDiameterComputationExpression="15" verticalDiameterComputationExpression="10">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="WorkLoadNode" label="WorkLoad Node" semanticCandidatesExpression="feature:workloads" doubleClickDescription="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateWorkLoad']" domainClass="canopusPerformanceScenario::Workload">
@@ -683,7 +682,7 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="ActivityNode" label="Activity Node" semanticCandidatesExpression="feature:activities" domainClass="canopusPerformanceScripting::Activity">
+        <nodeMappings name="ActivityNode" label="Activity Node" semanticCandidatesExpression="feature:activities" documentation="HTTP address of the SUT request" domainClass="canopusPerformanceScripting::Activity">
           <borderedNodeMappings name="BorderedScript" label="Bordered Script" semanticCandidatesExpression="feature:scripting" doubleClickDescription="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ScriptNavegation']" domainClass="canopusPerformanceScenario::Scripting">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="20" showIcon="false" labelExpression="" iconPath="/monitoring.canopus.design/icons/ThinkTimeSmall.gif" tooltipExpression="aql:self.name" sizeComputationExpression="2" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/ThinkTimeSmall.gif">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -701,8 +700,8 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="ThinkTimeNode" label="ThinkTime Node" semanticCandidatesExpression="feature:thinkTime" domainClass="canopusPerformanceScripting::ThinkTime">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="feature:time" sizeComputationExpression="5" workspacePath="/monitoring.canopus.design/icons/ThinkTime.png">
+        <nodeMappings name="ThinkTimeNode" label="ThinkTime Node" labelDirectEdit="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='ThinkTimeEdit']" semanticCandidatesExpression="feature:thinkTime" domainClass="canopusPerformanceScripting::ThinkTime">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="feature:time" tooltipExpression="Press 'F2' to edit the thinktime value (value must be in hh:mm:ss format)" sizeComputationExpression="5" workspacePath="/monitoring.canopus.design/icons/ThinkTime.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -722,7 +721,7 @@
         </edgeMappings>
         <edgeMappings name="ActivityToFinal" label="Activity To Final" synchronizationLock="true" sourceMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']" targetMapping="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='FinalNode']" targetFinderExpression="feature:final">
           <style strokeColor="//@userColorsPalettes[name='CanopusColors']/@entries[name='BlueCanopus']" sizeComputationExpression="3" routingStyle="manhattan" foldingStyle="SOURCE" endsCentering="Target">
-            <centerLabelStyleDescription iconPath="/monitoring.canopus.design/icons/target.png">
+            <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -998,6 +997,14 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="EditScript">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="ThinkTimeEdit">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="time" valueExpression="service:FormatTime(0)"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="Transaction" position="NORTH_EAST" preconditionExpression="aql:self.transaction = true" imageExpression="/monitoring.canopus.design/icons/Plus.png" domainClass="canopusPerformanceScripting::Activity"/>
         </decorationDescriptionsSet>
@@ -1009,6 +1016,7 @@
       <ownedColumnMappings name="SelectNextRow" label="Select Next Row" headerLabelExpression="Select Next Row" featureName="selectnextrow" labelExpression="feature:selectnextrow"/>
       <ownedColumnMappings name="UpdatedValueOn" label="Updated Value On" headerLabelExpression="Updated Value On" featureName="updatedvalueon"/>
     </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="monitoring.canopus.design.Services"/>
   </ownedViewpoints>
   <ownedViewpoints name="WorkLoadDiagram" label="WorkLoad Diagram">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="WorkLoadDiagram" label="WorkLoad Diagram" titleExpression="new Workload Diagram" initialisation="true" domainClass="canopusPerformanceScenario::Workload" enablePopupBars="true">
@@ -1174,5 +1182,6 @@
   </ownedViewpoints>
   <userColorsPalettes name="CanopusColors">
     <entries xsi:type="description:UserFixedColor" red="0" green="127" blue="255" name="BlueCanopus"/>
+    <entries xsi:type="description:UserFixedColor" red="184" green="218" blue="254" name="BlueCanopus2"/>
   </userColorsPalettes>
 </description:Group>

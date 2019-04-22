@@ -1,8 +1,11 @@
 package monitoring.canopus.design;
 
 import java.lang.reflect.InvocationTargetException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -27,6 +30,7 @@ import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Criteria;
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Disk;
 import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Metric;
 import canopus.canopusPerformanceScenario.*;
+import canopus.canopusPerformanceScenario.canopusPerformanceScripting.ThinkTime;
 import canopus.canopusPerformanceScenario.canopusPerformanceWorkload.RampDownUsers;
 
 /**
@@ -307,8 +311,32 @@ public void setIntegerLabelsTestUser( Workload work, String value) {
 	
 }
     
+public String FormatTime(ThinkTime thinktime, String time) {
+	
+	Date dts = null;
 
+	String tempo;
+
+	SimpleDateFormat sdf= new SimpleDateFormat("HH:mm:ss");
+	System.out.print("Teste time "+ time +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+	
+
+
+	       try {
+	    	   
+			dts= sdf.parse(time);
+			
+		} catch (ParseException e) {
+			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		
+		}
+	
+	tempo = dts.getHours()+":"+dts.getMinutes()+":"+dts.getSeconds();
+
+    return tempo;
     
-    
-    
+}
 }
