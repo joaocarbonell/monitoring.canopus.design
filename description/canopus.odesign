@@ -17,7 +17,7 @@
             </style>
           </borderedNodeMappings>
           <borderedNodeMappings name="ipSUTNodeNote" labelDirectEdit="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SUTIPDirectEdit']" semanticCandidatesExpression="[self/]" domainClass="canopusPerformanceMonitoring::SUT">
-            <style xsi:type="style:NoteDescription" labelSize="15" showIcon="false" labelExpression="[' IP: ' + ip/]" tooltipExpression="Press 'F2' to edit the Load Generator IP" sizeComputationExpression="1" resizeKind="NSEW">
+            <style xsi:type="style:NoteDescription" labelSize="15" showIcon="false" labelExpression="[' IP: ' + ip/]" tooltipExpression="Press 'F2' to edit the Load Generator IP" sizeComputationExpression="2">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
@@ -768,7 +768,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <toolSections name="CreationMetricsElements" label="Creation Metrics Elements">
+        <toolSections name="CreationScriptElements" label="Creation Script Elements">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateInitialNode" label="Intial" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='feature%3AcolumnshiddenobjectInitialNode']" iconPath="/monitoring.canopus.design/icons/InitialSmall.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -844,7 +844,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="DataTableparameterWizard" label="Parameter Edit" precondition="aql:self.oclAsType(canopusPerformanceScripting::DataTable)" candidatesExpression="aql:self" multiple="true" iconPath="/monitoring.canopus.design/icons/EditParameterSmall.png" windowTitle="Parameters Edit" windowImagePath="/monitoring.canopus.design/icons/EditParameterSmall.png">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="DataTableparameterWizard" label="Parameter Edit" precondition="aql:self.oclAsType(canopusPerformanceScripting::DataTable)" forceRefresh="true" candidatesExpression="aql:self" multiple="true" iconPath="/monitoring.canopus.design/icons/EditParameterSmall.png" windowTitle="Parameters Edit" windowImagePath="/monitoring.canopus.design/icons/EditParameterSmall.png">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -860,7 +860,7 @@
                     <firstModelOperations xsi:type="tool_1:DeleteView"/>
                   </initialOperation>
                 </buttons>
-                <page name="Default Page" labelExpression="Page" domainClass="canopusPerformanceScripting::DataTable" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DataTableparameterWizard']/@initialOperation/@firstModelOperations/@groups.0">
+                <page name="Default Page" labelExpression="Parameters List" domainClass="canopusPerformanceScripting::DataTable" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DataTableparameterWizard']/@initialOperation/@firstModelOperations/@groups.0">
                   <actions tooltipExpression="Add Parameters" imageExpression="/monitoring.canopus.design/icons/AddParameter.png">
                     <initialOperation>
                       <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
@@ -870,7 +870,7 @@
                         <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                           <initialOperation/>
                         </buttons>
-                        <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DataTableparameterWizard']/@initialOperation/@firstModelOperations/@page/@actions.0/@initialOperation/@firstModelOperations/@groups.0"/>
+                        <page name="Default Page" labelExpression="Parameters List" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='DataTableparameterWizard']/@initialOperation/@firstModelOperations/@page/@actions.0/@initialOperation/@firstModelOperations/@groups.0"/>
                         <groups name="Default Group" labelExpression="Group" domainClass="canopusPerformanceScripting::DataTable" semanticCandidateExpression="var:self">
                           <controls xsi:type="properties:TextDescription" name="canopusPerformanceScripting::DataTable attachedFile" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('attachedFile')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('attachedFile'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('attachedFile').changeable" valueExpression="aql:self.attachedFile">
                             <initialOperation>
