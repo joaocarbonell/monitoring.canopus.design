@@ -17,7 +17,7 @@
             </style>
           </borderedNodeMappings>
           <borderedNodeMappings name="ipSUTNodeNote" labelDirectEdit="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SUTIPDirectEdit']" semanticCandidatesExpression="[self/]" domainClass="canopusPerformanceMonitoring::SUT">
-            <style xsi:type="style:NoteDescription" labelSize="15" showIcon="false" labelExpression="[' IP: ' + ip/]" tooltipExpression="Press 'F2' to edit the Load Generator IP" sizeComputationExpression="2">
+            <style xsi:type="style:NoteDescription" labelSize="15" showIcon="false" labelExpression="[' IP: ' + ip/]" labelAlignment="LEFT" tooltipExpression="Press 'F2' to edit the Load Generator IP" sizeComputationExpression="2" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
@@ -30,12 +30,9 @@
         </nodeMappings>
         <nodeMappings name="MonitorNode" labelDirectEdit="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SUTMonitorLGHostnameDirectEdit']" synchronizationLock="true" domainClass="canopusPerformanceMonitoring::Monitor">
           <borderedNodeMappings name="ipMonitorNodeNote" labelDirectEdit="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='SUTIPDirectEdit']" semanticCandidatesExpression="[self/]" domainClass="canopusPerformanceMonitoring::Monitor">
-            <style xsi:type="style:NoteDescription" labelSize="20" showIcon="false" labelExpression="[' IP: ' + ip/]" tooltipExpression="Press 'F2' to edit the Load Generator IP" sizeComputationExpression="1">
+            <style xsi:type="style:NoteDescription" labelSize="20" showIcon="false" labelExpression="[' IP: ' + ip/]" tooltipExpression="Press 'F2' to edit the Load Generator IP" sizeComputationExpression="1" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <forbiddenSides>WEST</forbiddenSides>
-              <forbiddenSides>EAST</forbiddenSides>
-              <forbiddenSides>NORTH</forbiddenSides>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
             </style>
           </borderedNodeMappings>
@@ -141,7 +138,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateMonitor" label="Monitor" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='MonitorNode']" iconPath="/monitoring.canopus.design/icons/Monitor.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Machine responsible for monitoring the performance metrics of the SUT. This object is optional, since the Load Generator object, besides generating workload for virtual users, can also play the role of monitoring." name="CreateMonitor" label="Monitor" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='Monitoring%20Diagram']/@ownedRepresentations[name='Monitoring%20Diagram']/@defaultLayer/@nodeMappings[name='MonitorNode']" iconPath="/monitoring.canopus.design/icons/Monitor.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -569,7 +566,7 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="ScriptNode" label="Script Node" semanticCandidatesExpression="feature:scripting" doubleClickDescription="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateScript']" domainClass="canopusPerformanceScenario::Scripting">
+        <nodeMappings name="ScriptNode" label="Script Node" semanticCandidatesExpression="feature:scripting" domainClass="canopusPerformanceScenario::Scripting">
           <style xsi:type="style:EllipseNodeDescription" borderLineStyle="dot" showIcon="false" sizeComputationExpression="8" labelPosition="node" color="//@userColorsPalettes[name='CanopusColors']/@entries[name='BlueCanopus2']" horizontalDiameterComputationExpression="15" verticalDiameterComputationExpression="10">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -635,7 +632,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="CreateScript" label="Create Script" mappings="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@nodeMappings[name='ScriptNode']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="CreateScript" label="Create Script" mappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -682,14 +679,14 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="ActivityNode" label="Activity Node" semanticCandidatesExpression="feature:activities" documentation="HTTP address of the SUT request" domainClass="canopusPerformanceScripting::Activity">
+        <nodeMappings name="ActivityNode" label="Activity Node" semanticCandidatesExpression="feature:activities" doubleClickDescription="//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='CreateScript']" documentation="HTTP address of the SUT request" domainClass="canopusPerformanceScripting::Activity">
           <borderedNodeMappings name="BorderedScript" label="Bordered Script" semanticCandidatesExpression="feature:scripting" doubleClickDescription="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ScriptNavegation']" domainClass="canopusPerformanceScenario::Scripting">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="20" showIcon="false" labelExpression="" iconPath="/monitoring.canopus.design/icons/ThinkTimeSmall.gif" tooltipExpression="aql:self.name" sizeComputationExpression="2" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/ThinkTimeSmall.gif">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="20" showIcon="false" labelExpression="" iconPath="/monitoring.canopus.design/icons/ThinkTimeSmall.gif" tooltipExpression="aql:self.name" sizeComputationExpression="2" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/Plus.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="10" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/Activity.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="14" labelPosition="node" workspacePath="/monitoring.canopus.design/icons/Activity.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -835,7 +832,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="ScriptNavegation" label="Script Navegation" forceRefresh="true" mappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']/@borderedNodeMappings[name='BorderedScript']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="ScriptNavegation" label="Script Navegation" mappings="//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer/@nodeMappings[name='ActivityNode']/@borderedNodeMappings[name='BorderedScript']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -1006,7 +1003,8 @@
           </ownedTools>
         </toolSections>
         <decorationDescriptionsSet>
-          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="Transaction" position="NORTH_EAST" preconditionExpression="aql:self.transaction = true" imageExpression="/monitoring.canopus.design/icons/Plus.png" domainClass="canopusPerformanceScripting::Activity"/>
+          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="Transaction" position="SOUTH_EAST" preconditionExpression="aql:self.transaction = true" imageExpression="/monitoring.canopus.design/icons/Transaction.gif" tooltipExpression="Has an transaction" domainClass="canopusPerformanceScripting::Activity"/>
+          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="Loop" position="SOUTH" preconditionExpression="aql:self.loopInstances > 1" imageExpression="/monitoring.canopus.design/icons/Loop.png" tooltipExpression="Teste" domainClass="canopusPerformanceScripting::Activity"/>
         </decorationDescriptionsSet>
       </defaultLayer>
     </ownedRepresentations>
@@ -1104,7 +1102,7 @@
           <ownedTools xsi:type="tool:DirectEditLabel" name="Edit RampDown Users">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="rampDownUsers rampDownUsers" valueExpression="service:setIntegerLabelsRampDownUsers(0)"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="rampDownUsers rampDownUser" valueExpression="service:setIntegerLabelsRampDownUsers(0)"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DirectEditLabel" name="Edit RampDown Timer">

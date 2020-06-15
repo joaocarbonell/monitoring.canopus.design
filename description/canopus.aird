@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:canopus="http://www.unipampa.lesse.org/canopus" xmlns:canopusPerformanceScenario="http://www.unipampa.lesse.org/canopusPerformanceScenario" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.unipampa.lesse.org/canopusPerformanceScenario http://www.unipampa.lesse.org/canopus#//canopusPerformanceScenario http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description">
+  <viewpoint:DAnalysis uid="_y-uxEJYsEequB8_KOUeCpg" selectedViews="_asgxEJYxEeq6RvwMJoauKQ _98j-UJYxEeq6RvwMJoauKQ _-ObKYJYxEeq6RvwMJoauKQ _-jusAJYxEeq6RvwMJoauKQ _-rh9IJYxEeq6RvwMJoauKQ __GjFMJYxEeq6RvwMJoauKQ __j1eIJYxEeq6RvwMJoauKQ __sbZcJYxEeq6RvwMJoauKQ _FHf7AJYyEeq6RvwMJoauKQ" version="14.1.0.201810161215">
+    <semanticResources>file:/C:/Users/joao_/Documents/Canopus/CanopusEcore/Canopus%20dev/org.unipampa.lesse.canopus/model/canopus.ecore</semanticResources>
+    <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_asgxEJYxEeq6RvwMJoauKQ">
+      <viewpoint xmi:type="description:Viewpoint" href="canopus.odesign#//@ownedViewpoints[name='Scenario%20Diagram']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_auBM8JYxEeq6RvwMJoauKQ" name="Scenario Diagram" repPath="#_atm9QJYxEeq6RvwMJoauKQ">
+        <description xmi:type="description_1:DiagramDescription" href="canopus.odesign#//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']"/>
+        <target xmi:type="canopus:Scenario" href="MyCanopus.canopus#/"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_a_iaw5YxEeq6RvwMJoauKQ" name="new Scenario Diagram" repPath="#_a_f-gJYxEeq6RvwMJoauKQ">
+        <description xmi:type="description_1:DiagramDescription" href="canopus.odesign#//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']"/>
+        <target xmi:type="canopus:Scenario" href="MyCanopus.canopus#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_98j-UJYxEeq6RvwMJoauKQ">
+      <viewpoint xmi:type="description:Viewpoint" href="canopus.odesign#//@ownedViewpoints[name='Scripting%20Diagram']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_98pd4ZYxEeq6RvwMJoauKQ" name="Scripting Diagram" repPath="#_98lMcJYxEeq6RvwMJoauKQ">
+        <description xmi:type="description_1:DiagramDescription" href="canopus.odesign#//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']"/>
+        <target xmi:type="canopusPerformanceScenario:Scripting" href="MyCanopusPerformanceScenario.canopusPerformanceScenario#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_-ObKYJYxEeq6RvwMJoauKQ">
+      <viewpoint xmi:type="description:Viewpoint" href="canopus.odesign#//@ownedViewpoints[name='WorkLoadDiagram']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_-jusAJYxEeq6RvwMJoauKQ">
+      <viewpoint xmi:type="description:Viewpoint" href="canopus.odesign#//@ownedViewpoints[name='Monitoring%20Diagram']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_-rh9IJYxEeq6RvwMJoauKQ">
+      <viewpoint xmi:type="description:Viewpoint" href="canopus.odesign#//@ownedViewpoints[name='MetricDiagram']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="__GjFMJYxEeq6RvwMJoauKQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="__j1eIJYxEeq6RvwMJoauKQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="__sbZcJYxEeq6RvwMJoauKQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Archetype']"/>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" uid="_FHf7AJYyEeq6RvwMJoauKQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/my.project.design/description/project.odesign#//@ownedViewpoints[name='MyViewpoint']"/>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_atm9QJYxEeq6RvwMJoauKQ" name="Scenario Diagram">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_at9ikJYxEeq6RvwMJoauKQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_at9ikZYxEeq6RvwMJoauKQ"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_auYZUJYxEeq6RvwMJoauKQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_auYZUZYxEeq6RvwMJoauKQ" type="Sirius" element="_atm9QJYxEeq6RvwMJoauKQ" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_auYZUpYxEeq6RvwMJoauKQ"/>
+      </data>
+    </ownedAnnotationEntries>
+    <description xmi:type="description_1:DiagramDescription" href="canopus.odesign#//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_atsc0JYxEeq6RvwMJoauKQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="canopus.odesign#//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer"/>
+    <target xmi:type="canopus:Scenario" href="MyCanopus.canopus#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram uid="_a_f-gJYxEeq6RvwMJoauKQ" name="new Scenario Diagram">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_a_iawJYxEeq6RvwMJoauKQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_a_iawZYxEeq6RvwMJoauKQ"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_a_jB0JYxEeq6RvwMJoauKQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_a_jB0ZYxEeq6RvwMJoauKQ" type="Sirius" element="_a_f-gJYxEeq6RvwMJoauKQ" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_a_jB0pYxEeq6RvwMJoauKQ"/>
+      </data>
+    </ownedAnnotationEntries>
+    <description xmi:type="description_1:DiagramDescription" href="canopus.odesign#//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_a_glkJYxEeq6RvwMJoauKQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="canopus.odesign#//@ownedViewpoints[name='Scenario%20Diagram']/@ownedRepresentations[name='Scenario%20Diagram']/@defaultLayer"/>
+    <target xmi:type="canopus:Scenario" href="MyCanopus.canopus#/"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram uid="_98lMcJYxEeq6RvwMJoauKQ" name="Scripting Diagram">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_98o20JYxEeq6RvwMJoauKQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_98o20ZYxEeq6RvwMJoauKQ"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_98qE8JYxEeq6RvwMJoauKQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_98qE8ZYxEeq6RvwMJoauKQ" type="Sirius" element="_98lMcJYxEeq6RvwMJoauKQ" measurementUnit="Pixel">
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_98qE8pYxEeq6RvwMJoauKQ"/>
+      </data>
+    </ownedAnnotationEntries>
+    <description xmi:type="description_1:DiagramDescription" href="canopus.odesign#//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_98lzgJYxEeq6RvwMJoauKQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="canopus.odesign#//@ownedViewpoints[name='Scripting%20Diagram']/@ownedRepresentations[name='Scripting%20Diagram']/@defaultLayer"/>
+    <target xmi:type="canopusPerformanceScenario:Scripting" href="MyCanopusPerformanceScenario.canopusPerformanceScenario#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>
