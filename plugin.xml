@@ -3,7 +3,7 @@
 <plugin>
   <extension point="org.eclipse.sirius.componentization">
     <component class="monitoring.canopus.design.Activator"
-               id="monitoring.canopus.design"
+               id="OpenMLPerf"
 	       name="canopus">
     </component>
   </extension>

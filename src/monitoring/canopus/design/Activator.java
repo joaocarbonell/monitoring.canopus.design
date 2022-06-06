@@ -13,7 +13,7 @@ import org.osgi.framework.BundleContext;
  */
 public class Activator extends AbstractUIPlugin {
     // The plug-in ID
-    public static final String PLUGIN_ID = "monitoring.canopus.design";
+    public static final String PLUGIN_ID = "OpenMLPerf";
 
     // The shared instance
     private static Activator plugin;

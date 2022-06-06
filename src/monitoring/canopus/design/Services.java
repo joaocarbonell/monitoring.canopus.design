@@ -1,5 +1,7 @@
 package monitoring.canopus.design;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,14 +26,14 @@ import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 
-import canopus.canopusPerformanceMonitoring.LoadGenerator;
-import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.AssociationCounterCriteriaThreshold;
-import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Criteria;
-import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Disk;
-import canopus.canopusPerformanceMonitoring.canopusPerformanceMetric.Metric;
-import canopus.canopusPerformanceScenario.*;
-import canopus.canopusPerformanceScenario.canopusPerformanceScripting.ThinkTime;
-import canopus.canopusPerformanceScenario.canopusPerformanceWorkload.RampDownUsers;
+import openmlperf.openmlperfPerformanceMonitoring.LoadGenerator;
+import openmlperf.openmlperfPerformanceMonitoring.openmlperfPerformanceMetric.AssociationCounterCriteriaThreshold;
+import openmlperf.openmlperfPerformanceMonitoring.openmlperfPerformanceMetric.Criteria;
+import openmlperf.openmlperfPerformanceMonitoring.openmlperfPerformanceMetric.Disk;
+import openmlperf.openmlperfPerformanceMonitoring.openmlperfPerformanceMetric.Metric;
+import openmlperf.openmlperfPerformanceScenario.*;
+import openmlperf.openmlperfPerformanceScenario.openmlperfPerformanceScripting.ThinkTime;
+import openmlperf.openmlperfPerformanceScenario.openmlperfPerformanceWorkload.RampDownUsers;
 
 /**
  * 
@@ -142,35 +144,32 @@ public void setIntegerLabelsRampDownUsers( Workload work, String value) {
 
 public void setIntegerLabelsRampDownTimer( Workload work, String value) {
 	
-	List<Character>values = new ArrayList<>();
-	
-	int valuesInt =0;
+		
+		Date dts = null;
 
-	System.out.print("Teste print "+ value.toString() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
-	
-	for(char c : value.toCharArray()) {
+		String tempo = "";
+
+		SimpleDateFormat sdf= new SimpleDateFormat("HH:mm:ss");
+		System.out.print("Teste time "+ tempo.toString() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
 		
-		if (Character.isDigit(c)) {
-			System.out.print("Teste 456 "+ c +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
-			values.add(c);
-		}
+
+		       try {
+		    	   
+				dts= sdf.parse(value);
+				
+			} catch (ParseException e) {
+				
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			
+			
+			}
 		
-	}
-	
-	
-	char[]char1 = new char[values.size()];
-	int i = 0;
-	for(Iterator iter = values.iterator(); iter.hasNext(); i++) {
-		char1[i] = ((Character)iter.next()).charValue();
-	}
-	
-	String textValue = new String(char1);
-	
-	valuesInt = Integer.valueOf(textValue);
-	
-	
-	
-	work.getRampDownTimer().setTime(valuesInt);
+		tempo = dts.getHours()+":"+dts.getMinutes()+":"+dts.getSeconds();
+
+	    work.getRampDownTimer().setTime(value);
+	    
+
 	
 	
 }
@@ -186,7 +185,16 @@ public void setIntegerLabelsRampUpUsers( Workload work, String value) {
 	for(char c : value.toCharArray()) {
 		
 		if (Character.isDigit(c)) {
-			System.out.print("Teste 456 "+ c +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+			System.out.print("Teste 460 "+ c +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+			System.out.print("test/scala");
+			File file = new File("C:/Users/joao_/Documents/test.scala");
+			try {
+				file.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.print("Deu ruim ¨&¨¨¨¨¨¨¨&$%&¨%&%&¨%&¨%&¨%&");
+			}
 			values.add(c);
 		}
 		
@@ -211,39 +219,33 @@ public void setIntegerLabelsRampUpUsers( Workload work, String value) {
 	
 public void setIntegerLabelsRampUpTimer( Workload work, String value) {
 
-	
-	List<Character>values = new ArrayList<>();
-	
-	int valuesInt =0;
+	Date dts = null;
 
-	System.out.print("Teste print "+ value.toString() +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
+	String tempo = "";
+
+	SimpleDateFormat sdf= new SimpleDateFormat("HH:mm:ss");
+	System.out.print("Teste time "+ tempo +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
 	
-	for(char c : value.toCharArray()) {
+
+	       try {
+	    	   
+			dts= sdf.parse(value);
+			
+		} catch (ParseException e) {
+			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		
-		if (Character.isDigit(c)) {
-			System.out.print("Teste 456 "+ c +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
-			values.add(c);
+		
 		}
-		
-	}
 	
-	
-	char[]char1 = new char[values.size()];
-	int i = 0;
-	for(Iterator iter = values.iterator(); iter.hasNext(); i++) {
-		char1[i] = ((Character)iter.next()).charValue();
-	}
-	
-	String textValue = new String(char1);
-	
-	valuesInt = Integer.valueOf(textValue);
-	
-	
-	work.getRampUpTimer().setTime(valuesInt);
+	tempo = dts.getHours()+":"+dts.getMinutes()+":"+dts.getSeconds();
+
+    work.getRampUpTimer().setTime(value);
 	
 }
 
-public void setIntegerLabelsTestTime( Workload work, String value) {//TODO Mudar o tipo do tempo do teste(workload), para int, ao invés de string...
+public void setIntegerLabelsTestTime( Workload work, String value) {//TODO Mudar o tipo do tempo do teste(workload), para int, ao invï¿½s de string...
 	
 	List<Character>values = new ArrayList<>();
 	
@@ -290,6 +292,7 @@ public void setIntegerLabelsTestUser( Workload work, String value) {
 		if (Character.isDigit(c)) {
 			System.out.print("Teste 456 "+ c +"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ");
 			values.add(c);
+			File file = new File("./arquivo/test.scala");
 		}
 		
 	}
@@ -339,4 +342,9 @@ public String FormatTime(ThinkTime thinktime, String time) {
     return tempo;
     
 }
+
+
+
+
+
 }
